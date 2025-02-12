@@ -1,0 +1,7 @@
+.raydevs:hover {
+  text-shadow: #fc0 1px 0 15px;
+  transition: text-shadow 0.2s ease-in-out;
+}
+/* raydevs {
+  text-shadow: #fc0 1px 0 10px;
+} */
