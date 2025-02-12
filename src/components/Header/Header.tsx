@@ -11,7 +11,7 @@ export const Header: React.FC<HeaderProps> = ({ lol }) => {
       <div className="w-full max-w-[900px] mx-auto px-4 flex items-center justify-between h-16">
         <div
           onClick={() => (window.location.href = "/")}
-          className="raydevs font-[Retro_Computer] text-lg text-gray-700 cursor-pointer dark:text-cyan-50"
+          className="raydevs font-retro text-lg text-gray-700 cursor-pointer dark:text-cyan-50"
         >
           RAYDEVS
         </div>

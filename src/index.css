@@ -3,14 +3,12 @@
 @custom-variant dark (&:where(.dark, .dark *));
 @layer base {
   * {
-    /* border: solid salmon 1px; */
     transition:
       background-color 0.5s ease-in-out,
       color 0.5s ease-in-out;
   }
 }
 
-/* In your globals.css or another CSS file that's processed by Tailwind */
 @layer components {
   .side-shadow {
     box-shadow:
@@ -38,4 +36,18 @@
   src: url("/fonts/retro_computer.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@theme {
+  --font-retro: "Retro Computer";
+  --font-mono: "Roboto Mono";
+  --font-mono-bold: "Roboto Mono";
+  --font-jetbrains: "JetBrains Mono";
 }

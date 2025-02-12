@@ -1,12 +1,13 @@
-interface ProfileProps {
-  lol: string;
-}
+import "./Profile.css";
 
-export const Profile: React.FC<ProfileProps> = () => {
+export const Profile: React.FC = () => {
   return (
-    <div className="w-full font-[Roboto_Mono] h-150 items-center flex flex-row justify-around">
-      <div className="flex flex-col  font-[Roboto_Mono] text-gray-600">
-        <div className="text-7xl">Dan Raymond</div>
+    <div className="w-full  h-150 items-center flex flex-row justify-around shadow-(--neon)">
+      <div className="flex flex-col tracking-tighter font-mono text-gray-600">
+        <div className="flex flex-row gap-3">
+          <div className="text-7xl">Dan</div>
+          <div className="text-7xl">Raymond</div>
+        </div>
         <div className="pl-2 text-2xl">Fullstack Software Engineer</div>
         <button className="w-30 h-10 bg-blue-600">Contact</button>
       </div>
