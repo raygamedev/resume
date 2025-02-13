@@ -1,4 +1,3 @@
-import { ThemeToggleButton } from "../Header/ThemeToggleButton";
 import { Profile } from "../Profile/Profile";
 import { Resume } from "../Resume/Resume";
 
