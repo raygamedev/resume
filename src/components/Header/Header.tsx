@@ -1,18 +1,15 @@
 import { ThemeToggleButton } from "./ThemeToggleButton";
 import "./Header.css";
 import { useTranslation } from "react-i18next";
-import { Button } from "../Button/Button";
+import { LanguageSetting } from "../Button/LanguageSetting.tsx";
+import React from "react";
 
-interface HeaderProps {
-  lol: string;
-}
-
-export const Header: React.FC<HeaderProps> = ({ lol }) => {
-  const { t, i18n } = useTranslation();
+export const Header: React.FC = () => {
+  const { i18n } = useTranslation();
   return (
     <div className="fixed top-0 left-0 right-0 z-50 bg-[#FFFBF1] dark:bg-gray-900 shadow-2xl border-b border-gray-200 dark:border-gray-700">
       <div className="w-full max-w-[900px] mx-auto px-4 flex items-center justify-between h-16">
-        <Button
+        <LanguageSetting
           text="Language"
           icon="GlobeAltIcon"
           onClick={() => i18n.changeLanguage("en")}

@@ -1,5 +1,0 @@
-@import "tailwindcss";
-
-@theme {
-  --shadow-neon: "0 0 5px theme('color.purple.200')";
-}
