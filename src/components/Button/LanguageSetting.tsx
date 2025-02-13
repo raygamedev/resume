@@ -8,13 +8,12 @@ import { GlobeAmericasIcon } from "@heroicons/react/24/outline";
 
 export const LanguageSetting: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [language, setLanguage] = useState<string>("EN");
+  const [language, setLanguage] = useState<string>("en");
   const { t, i18n } = useTranslation();
-  console.log(i18n.language);
 
   const dropdownItems = [
-    { label: "English", key: "en", icon: <USAFlag /> },
-    { label: "日本語", key: "jp", icon: <JapanFlag /> },
+    { value: "en", icon: <USAFlag /> },
+    { value: "jp", icon: <JapanFlag /> },
   ];
 
   useEffect(() => {
@@ -22,13 +21,13 @@ export const LanguageSetting: React.FC = () => {
   }, [i18n, language]);
 
   const onSelectHandler = (item: DropdownItem) => {
-    setLanguage(item.key);
+    setLanguage(item.value);
   };
 
   return (
     <div className="relative inline-block">
       <div
-        className="flex cursor-pointer justify-center space-x-0.5 px-2 py-2 w-25 bg-blue-600 hover:bg-blue-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+        className="flex flex-row cursor-pointer justify-between space-x-0.5 px-2 py-2 w-25 bg-blue-600 hover:bg-blue-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
         onClick={() => setIsOpen(!isOpen)}
       >
         <Dropdown
@@ -37,12 +36,14 @@ export const LanguageSetting: React.FC = () => {
           items={dropdownItems}
           onSelect={onSelectHandler}
         />
-        {language === "en" ? (
-          <GlobeAmericasIcon className={"w-6"} />
-        ) : (
-          <GlobeAsiaAustraliaIcon className={"w-6"} />
-        )}
-        <span>{t(language)}</span>
+        <div className={"w-7 flex justify-center"}>
+          {language === "en" ? (
+            <GlobeAmericasIcon className={"w-6"} />
+          ) : (
+            <GlobeAsiaAustraliaIcon className={"w-6"} />
+          )}
+        </div>
+        <div className={"grow text-center"}>{t(language)}</div>
       </div>
     </div>
   );
