@@ -1,15 +1,12 @@
 import { Profile } from "../Profile/Profile";
 import { Resume } from "../Resume/Resume";
+import React from "react";
 
-interface HomeProps {
-  lol: string;
-}
-
-export const Home: React.FC<HomeProps> = ({ lol }) => {
+export const Home: React.FC = () => {
   return (
     <div className="pt-16">
-      <div className="w-screen flex justify-center h-screen grow dark:bg-gray-800">
-        <div className="container mx-auto p-4 bg-[#FFFBF1] dark:bg-gray-900 side-shadow flex justify-center">
+      <div className="w-screen h-max flex justify-center  grow dark:bg-gray-800">
+        <div className="container mx-auto p-4 bg-[#FFFBF1] dark:bg-gray-900 side-shadow flex justify-start flex-col">
           <Profile />
           <Resume />
         </div>

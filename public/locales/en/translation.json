@@ -6,5 +6,87 @@
   "description": {
     "part1": "To get started, edit <1>src/App.js</1> and save to reload.",
     "part2": "Switch language between english and german using buttons above."
+  },
+  "bullet": "•",
+  "resume": {
+    "profile": {
+      "title": "Profile",
+      "description": [
+        "Highly motivated employee, with nearly 7 years of experience in the Software Development Industry",
+        "Constantly looking for progression, learning and achievement",
+        "Highly passionate about technology, computers and Software Engineering, learning new concepts and researching the subject",
+        "Hobbyist video game developer experienced in Unity and C#",
+        "Entire professional career built through self-directed learning and continuous self-improvement."
+      ]
+    },
+    "experience":
+[ {
+        "jobTitle": "Fullstack Software Engineer",
+        "company": "SIEMENS (After Acquisition)",
+        "dates": "2023 - Present",
+        "responsibilities": [
+          "Key member of a 5-person team driving development projects that led to our successful acquisition by Siemens",
+          "Fullstack Software development integrating legacy systems with Siemens technology stack, learning new concepts and adjusting to corporate culture",
+          "Directed and led the full lifecycle of production deployments, significantly improving system reliability and robustness using Docker, Ansible, GitLabCI, Linux automated installation (Preseed), bash scripts and CI/CD development",
+          "Responsible for integrating Siemens UI/UX design into our Software using React.js, Typescript, Vite"
+        ]
+      },
+ {
+        "jobTitle": "Fullstack Software Engineer",
+        "company": "INSPEKTO",
+        "dates": "2020 - 2023",
+        "responsibilities": [
+          "Fullstack Software development using React.js, Typescript, Python, GitLabCI, Linux Preseed, bash scripting",
+          "Full responsibility for features from Design, Development, Testing to Deployment"
+        ]
+      },
+  {
+        "jobTitle": "Junior Software Engineer",
+        "company": "INSPEKTO",
+        "dates": "2019 - 2020",
+        "responsibilities": [
+          "Development of basic UI and UI Automation using Node, React",
+          "Development of CI/CD pipelines using Python and Jenkins"
+        ]
+      },
+ {
+        "jobTitle": "Data Team Member",
+        "company": "INSPEKTO",
+        "dates": "2018 - 2019",
+        "responsibilities": [
+          "Python and Linux Basics",
+          "Data analysis for Algo team, Python scripting for automating tools"
+        ]
+      } ],
+    "contact": {
+      "email": "dan@raydevs.com",
+      "phone": "+972-526865438",
+      "linkedin": "linkedin.com/in/ray-dev"
+    },
+    "skills": [
+      "React",
+      "Redux",
+      "Typescript",
+      "Python",
+      "C#",
+      "Unity Engine",
+      "C++",
+      "FastAPI",
+      "Flask",
+      "MongoDB",
+      "Docker",
+      "Ansible",
+      "GitLabCI",
+      "GitHub Actions",
+      "DevOps CICD",
+      "Linux",
+      "Rust",
+      "Jenkins"
+    ],
+    "languages": {
+      "hebrew": "Native",
+      "english": "Native",
+      "japanese": "N4-N3"
+    }
   }
 }

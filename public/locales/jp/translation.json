@@ -6,5 +6,88 @@
   "description": {
     "part1": "To get started, edit <1>src/App.js</1> and save to reload.",
     "part2": "Switch language between english and german using buttons above."
+  },
+  "bullet": "※",
+  "resume": {
+    "profile": {
+      "title": "プロフィール",
+      "description": [
+        "ソフトウェア開発業界で約7年の経験を有する、非常に意欲的なエンジニアです。",
+        "常に成長、学習、そして成果を追求しています。",
+        "テクノロジー、コンピューター、ソフトウェアエンジニアリングに強い情熱を持ち、新しい概念の習得や研究に取り組んでいます。",
+        "UnityやC#を用いた趣味のゲーム開発にも精通しています。",
+        "自己主導の学習と継続的な自己改善を通じて、キャリアを構築してきました。"
+      ]
+    },
+    "experience":
+[{
+        "jobTitle": "フルスタックソフトウェアエンジニア",
+        "company": "SIEMENS（買収後）",
+        "dates": "2023年〜現在",
+        "responsibilities": [
+          "5人チームの主要メンバーとして、シーメンスによる買収に繋がる開発プロジェクトを推進。",
+          "レガシーシステムとシーメンスのテクノロジースタックを統合するフルスタックソフトウェア開発を担当し、新たな概念の習得と企業文化への適応を実現。",
+          "Docker、Ansible、GitLabCI、Linux自動インストール（Preseed）、bashスクリプト、CI/CD開発を活用し、生産環境へのデプロイの全ライフサイクルを指揮・推進、システムの信頼性と堅牢性を大幅に向上。",
+          "React.js、Typescript、Viteを用いて、シーメンスのUI/UXデザインをソフトウェアに統合。"
+        ]
+      },
+ {
+        "jobTitle": "フルスタックソフトウェアエンジニア",
+        "company": "INSPEKTO",
+        "dates": "2020年〜2023年",
+        "responsibilities": [
+          "React.js、Typescript、Python、GitLabCI、Linux Preseed、bashスクリプトを用いたフルスタックソフトウェア開発。",
+          "設計、開発、テスト、デプロイまでの全工程を一手に担う。"
+        ]
+      },
+ {
+        "jobTitle": "ジュニアソフトウェアエンジニア",
+        "company": "INSPEKTO",
+        "dates": "2019年〜2020年",
+        "responsibilities": [
+          "NodeおよびReactを用いた基本的なUIおよびUIオートメーションの開発。",
+          "PythonとJenkinsを用いたCI/CDパイプラインの開発。"
+        ]
+      },
+ {
+        "jobTitle": "データチームメンバー",
+        "company": "INSPEKTO",
+        "dates": "2018年〜2019年",
+        "responsibilities": [
+          "PythonおよびLinuxの基礎知識。",
+          "アルゴリズムチーム向けのデータ分析、ツール自動化のためのPythonスクリプト作成。"
+        ]
+      } ],
+    "contact": {
+      "email": "dan@raydevs.com",
+      "phone": "+972-526865438",
+      "linkedin": "linkedin.com/in/ray-dev"
+    },
+    "skills": [
+      "React",
+      "Redux",
+      "Typescript",
+      "Python",
+      "C#",
+      "Unity Engine",
+      "C++",
+      "FastAPI",
+      "Flask",
+      "MongoDB",
+      "Docker",
+      "Ansible",
+      "GitLabCI",
+      "GitHub Actions",
+      "DevOps CICD",
+      "Linux",
+      "Rust",
+      "Jenkins"
+    ],
+    "languages": {
+      "hebrew": "ネイティブ",
+      "english": "ネイティブ",
+      "japanese": "N4〜N3"
+    }
   }
+
 }
