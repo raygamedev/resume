@@ -8,14 +8,18 @@
       color 0.5s ease-in-out;
   }
 }
+@theme {
+  --color-mint-500: oklch(0.72 0.11 178);
+}
 ::-moz-selection { /* Code for Firefox */
-  color: black;
-  background: white;
+  color: #ffae00;
+  /*background: white;*/
 }
 
 ::selection {
-  color: black;
-  background: white;
+  color: #ffae00;
+  /*background: white;*/
+
 }
 @layer components {
   .side-shadow {
@@ -62,10 +66,60 @@ html, body {
   font-weight: 400;
   font-style: normal;
 }
+@font-face {
+    font-family: "Proxima Nova";
+    src: url("/fonts/proximanova_black.ttf") format("truetype");
+    font-weight: 900;
+    font-style: normal;
+}
 
+@font-face {
+    font-family: "Proxima Nova";
+    src: url("/fonts/proximanova_regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "LED Dot-Matrix";
+    src: url("/fonts/LED Dot-Matrix.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Input Mono";
+    src: url("/fonts/InputMono.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+  font-family: "InputMono";
+  src: url("https://db.onlinewebfonts.com/t/b1960c42fc95142fda26f31e5398bce0.eot");
+  src: url("https://db.onlinewebfonts.com/t/b1960c42fc95142fda26f31e5398bce0.eot?#iefix")format("embedded-opentype"),
+  url("https://db.onlinewebfonts.com/t/b1960c42fc95142fda26f31e5398bce0.woff2")format("woff2"),
+  url("https://db.onlinewebfonts.com/t/b1960c42fc95142fda26f31e5398bce0.woff")format("woff"),
+  url("https://db.onlinewebfonts.com/t/b1960c42fc95142fda26f31e5398bce0.ttf")format("truetype"),
+  url("https://db.onlinewebfonts.com/t/b1960c42fc95142fda26f31e5398bce0.svg#InputMono")format("svg");
+}
+
+@font-face {
+  font-family: "VCR OSD Mono";
+  src: url("/fonts/VCR_OSD_MONO_1.001.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
 @theme {
   --font-retro: "Retro Computer";
   --font-mono: "Roboto Mono";
   --font-mono-bold: "Roboto Mono";
   --font-jetbrains: "JetBrains Mono";
+  --font-proxima: "Proxima Nova";
+  --font-led: "LED Dot-Matrix";
+  --font-input: "Input Mono";
+  --font-lol: "InputMono";
+    --font-vcr: "VCR OSD Mono";
+  --color-dark-900: rgb(17, 17, 17);
+  --color-dark-800: rgb(33, 33, 33);
+    --color-dark-700: rgb(73, 73, 73);
 }

@@ -27,7 +27,7 @@ export const LanguageSetting: React.FC = () => {
   return (
     <div className="relative inline-block">
       <div
-        className="flex flex-row cursor-pointer justify-between space-x-0.5 px-2 py-2 w-25 bg-blue-600 hover:bg-blue-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+        className="flex flex-row cursor-pointer justify-between space-x-0.5 px-2 py-2 w-25 bg-gray-800 hover:bg-gray-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
         onClick={() => setIsOpen(!isOpen)}
       >
         <Dropdown
