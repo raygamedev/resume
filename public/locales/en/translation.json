@@ -2,7 +2,7 @@
   "en": "EN",
   "jp": "日本語",
   "title": "Welcome to react using react-i18next",
-  "job_title": "Fullstack Software Engineer",
+  "job_title": "FULLSTACK SOFTWARE ENGINEER",
   "description": {
     "part1": "To get started, edit <1>src/App.js</1> and save to reload.",
     "part2": "Switch language between english and german using buttons above."
@@ -10,7 +10,11 @@
   "bullet": "•",
   "resume": {
     "profile": {
-      "title": "Profile",
+      "about": "ABOUT",
+      "location": {
+        "city": "TOKYO",
+        "country": "JAPAN"
+      },
       "description": [
         "Highly motivated employee, with nearly 7 years of experience in the Software Development Industry",
         "Constantly looking for progression, learning and achievement",
