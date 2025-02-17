@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { ProfileData } from "../../types.ts";
 import { Text } from "../Text/Text.tsx";
 import { EnvelopeIcon } from "@heroicons/react/24/outline";
+import { LinkedinLogo } from "../../assets/icons/LinkedinLogo.tsx";
 
 export const Profile: React.FC = () => {
   const { t } = useTranslation();
@@ -11,38 +12,39 @@ export const Profile: React.FC = () => {
   }) as ProfileData;
 
   return (
-    <div className="flex flex-row w-3/5 mx-auto font-proxima justify-around items-stretch min-h-[600px] dark:text-yellow-50">
+    <div className="flex flex-row  mx-auto font-proxima justify-around items-stretch min-h-[600px] dark:text-yellow-50">
       {/* About Section */}
       <div className="flex-1 flex flex-col justify-start h-full">
         <div className="text-dark-700">ABOUT:</div>
         {/* Name Section */}
         <div className="flex flex-row gap-3 justify-start">
-          <Text className="text-6xl" text="DAN" />
-          <Text className="text-6xl" text="RAYMOND" />
+          <Text className="text-6xl">DAN RAYMOND</Text>
         </div>
         {/* Title/Location Section */}
-        <Text className="text-2xl" text={t("job_title")} />
-        <Text className={"mt-10 text-dark-700"} text={"LOCATION:"} />
+        <Text className="text-2xl">{t("job_title")}</Text>
+        <Text className={"mt-10 text-dark-700"}>LOCATION:</Text>
         <div className="flex flex-row gap-1">
-          <Text className="text-xl" text={profileData.location.city} />
-          <Text className="text-xl" text={profileData.location.country} />
+          <Text className="text-xl w-max">{profileData.location.city}</Text>
+          <Text className="text-xl w-max">{profileData.location.country}</Text>
         </div>
         {/* Contact Section */}
-        <Text className="mt-10 text-dark-700" text={"CONTACT:"} />
-        <div className={"flex flex-row gap-1 items-center"}>
+        <Text className="mt-10 text-dark-700">CONTACT:</Text>
+        <div className={"flex flex-row gap-3 items-center"}>
           <EnvelopeIcon className="w-6 h-6 text-blue-500" />
-          <Text text={"dan@raydevs.com"} />
+          <Text>dan@raydevs.com</Text>
         </div>
 
-        <a
-          href="https://linkedin.com/in/ray-dev"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-500 hover:underline"
-        >
-          linkedin.com/in/ray-dev
-        </a>
-        <Text text={"linkedin.com/in/ray-dev"} />
+        <div className={"flex flex-row gap-3 items-center"}>
+          <LinkedinLogo className={"pl-1 w-5 h-5"} />
+          <a
+            href="https://linkedin.com/in/ray-dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            className=" hover:text-blue-500"
+          >
+            linkedin.com/in/ray-dev
+          </a>
+        </div>
         <button className="mt-4 px-6 py-2 text-white bg-orange-500 hover:bg-orange-600 rounded transition-colors w-40">
           Contact Me
         </button>
@@ -52,9 +54,9 @@ export const Profile: React.FC = () => {
       <div className="flex-1 flex flex-col justify-start overflow-auto h-full">
         <div className="text-dark-700">DESCRIPTION:</div>
         {profileData.description.map((item, index) => (
-          <div key={index} className="flex flex-row gap-1 p-2">
+          <div key={index} className="flex flex-row gap-3 p-3">
             <div>{t("bullet")}</div>
-            <Text className="pl-2 text-xl" text={item} />
+            <Text className="text-xl">{item} </Text>
           </div>
         ))}
       </div>

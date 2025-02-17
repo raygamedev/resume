@@ -37,10 +37,11 @@ export const SkillCard: React.FC<SkillCardProps> = ({ skill, hero, icon }) => {
           willChange: "filter",
         }}
       />
-      <div className="absolute inset-0 flex justify-center items-center translate-y-7">
+      <div className="absolute inset-0 flex justify-center items-center translate-y-7 ">
         <div
-          className="inline-block transition-all duration-300 ease-in-out"
+          className="inline-block transition-all duration-300 ease-in-out w-28 h-28"
           style={{
+            width: "100px",
             transform: hovered ? "scale(1.05)" : "scale(1)",
             filter: hovered
               ? `drop-shadow(0 0 5px ${color})`

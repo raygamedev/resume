@@ -4,7 +4,15 @@ import { Version } from "./components/Version/Version.tsx";
 
 const App = () => {
   return (
-    <div className="h-screen w-screen text-dark-900 dark:text-yellow-50 dark:bg-dark-900 dark:bg-[linear-gradient(to_right,rgb(25,25,25)_0px_1px,transparent_2px_200px),linear-gradient(to_bottom,rgb(25,25,25)_0px_1px,transparent_2px_200px)] bg-[size:10rem_10rem]">
+    <div
+      className="min-h-screen w-screen
+  text-dark-900
+  bg-[linear-gradient(to_right,rgba(230,230,230,1)_0px_1px,transparent_2px_200px),linear-gradient(to_bottom,rgba(230,230,230,1)_0px_1px,transparent_2px_200px)]
+  bg-[size:10rem_10rem]
+  dark:text-yellow-50
+  dark:bg-dark-900
+  dark:bg-[linear-gradient(to_right,rgba(35,35,35,1)_0px_1px,transparent_2px_200px),linear-gradient(to_bottom,rgba(35,35,35,1)_0px_1px,transparent_2px_200px)]"
+    >
       <Header />
       <Home />
       <Version />

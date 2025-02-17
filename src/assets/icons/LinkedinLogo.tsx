@@ -4,7 +4,7 @@ interface IconProps {
   className?: string;
 }
 
-const JapanFlag: React.FC<IconProps> = ({ className = "" }) => {
+export const LinkedinLogo: React.FC<IconProps> = ({ className = "" }) => {
   return (
     <svg
       width="256"
@@ -21,5 +21,3 @@ const JapanFlag: React.FC<IconProps> = ({ className = "" }) => {
     </svg>
   );
 };
-
-export default JapanFlag;

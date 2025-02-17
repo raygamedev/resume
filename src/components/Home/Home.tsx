@@ -1,13 +1,15 @@
 import { Profile } from "../Profile/Profile";
 import React from "react";
 import { Skills } from "../Skills/Skills.tsx";
+import { Resume } from "../Resume/Resume.tsx";
 
 export const Home: React.FC = () => {
   return (
     <div className="pt-16">
-      <div className="w-screen h-screen flex justify-center  grow ">
-        <div className="mx-auto p-4 flex justify-start flex-col">
+      <div className="flex justify-center  grow overflow-x-hidden">
+        <div className="w-3/5 p-4 flex flex-col items-center justify-start ">
           <Profile />
+          <Resume />
           <Skills />
         </div>
       </div>

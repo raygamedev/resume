@@ -7,8 +7,6 @@ interface IconProps {
 export const ReduxSVG: React.FC<IconProps> = ({ className = "" }) => {
   return (
     <svg
-      width="800px"
-      height="800px"
       viewBox="0 -6 256 256"
       xmlns="http://www.w3.org/2000/svg"
       preserveAspectRatio="xMidYMid"

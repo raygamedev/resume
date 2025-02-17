@@ -1,6 +1,6 @@
 import React from "react";
-import { ResumeCard } from "./Card";
 import { useTranslation } from "react-i18next";
+import { Text } from "../Text/Text.tsx";
 
 export interface ExperienceData {
   jobTitle: string;
@@ -15,10 +15,8 @@ export const Resume: React.FC = () => {
   }) as ExperienceData[];
   console.log(experienceData);
   return (
-    <div className="w-full grow flex flex-row flex-wrap gap-10">
-      {experienceData.map((item, index) => (
-        <ResumeCard key={index} exp={item} />
-      ))}
+    <div className="grow flex flex-row flex-wrap gap-10">
+      <Text className={"text-7xl"}>Full Stack</Text>
     </div>
   );
 };

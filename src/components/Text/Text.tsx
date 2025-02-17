@@ -1,25 +1,33 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 interface TextProps {
-  text: string;
+  children: React.ReactNode;
   className?: string;
   duration?: number; // Total time (in ms) for the typewriter effect
 }
 
 export const Text: React.FC<TextProps> = ({
-  text,
+  children,
   className,
   duration = 1000,
 }) => {
   const [displayedText, setDisplayedText] = useState("");
   const [finished, setFinished] = useState(false);
+  const divWidth = useRef<HTMLDivElement>(null);
+  const [width, setWidth] = useState<number>(0);
+  const [height, setHeight] = useState<number>(0);
+  useEffect(() => {
+    setWidth(divWidth.current?.offsetWidth || 0);
+    setHeight(divWidth.current?.offsetHeight || 0);
+  }, []);
 
   useEffect(() => {
+    const text = children?.toString();
+    if (!text) return;
     setFinished(false);
     setDisplayedText("");
     let currentIndex = 0;
     const textLength = text.length;
-    // Calculate delay per character so that the whole text types in "duration" ms
     const intervalDelay = textLength > 0 ? duration / textLength : duration;
     const interval = setInterval(() => {
       setDisplayedText(text.slice(0, currentIndex + 1));
@@ -30,19 +38,33 @@ export const Text: React.FC<TextProps> = ({
       }
     }, intervalDelay);
     return () => clearInterval(interval);
-  }, [text, duration]);
+  }, [children, duration]);
+
+  if (width === 0 || height === 0) {
+    return (
+      <div className={`w-full ${className || ""}`}>
+        {/* Ghost element to reserve the final text layout.
+          'text-transparent' makes it invisible while still taking up space. */}
+        <div ref={divWidth} className="invisible">
+          {children}
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <div className={className} style={{ position: "relative" }}>
-      {/* Invisible element to reserve the full height */}
-      {/* Animated text on top */}
-      <div className={"absolute top-0 left-0"}>
-        {displayedText}
-        <span
-          className={`inline-block ml-1 w-2 h-4 bg-current transition-opacity duration-500 ${finished ? "opacity-0" : "animate-blink"}`}
-        />
-      </div>
-      <div className="invisible">{text}</div>
+    <div
+      className={`w-full ${className || ""}`}
+      style={{ width: width, height: height }}
+    >
+      <span>{displayedText}</span>
+      <span
+        className={`ml-1 text-sm transition-opacity duration-500 ${
+          finished ? "opacity-0" : "animate-blink"
+        }`}
+      >
+        █
+      </span>
     </div>
   );
 };

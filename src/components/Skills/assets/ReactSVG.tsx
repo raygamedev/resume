@@ -7,8 +7,6 @@ interface IconProps {
 export const ReactSVG: React.FC<IconProps> = ({ className = "" }) => {
   return (
     <svg
-      width="569px"
-      height="512px"
       viewBox="0 0 569 512"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"

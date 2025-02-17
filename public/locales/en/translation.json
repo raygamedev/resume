@@ -12,6 +12,7 @@
     "profile": {
       "about": "ABOUT",
       "location": {
+        "title": "LOCATION",
         "city": "TOKYO",
         "country": "JAPAN"
       },
