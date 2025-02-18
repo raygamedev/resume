@@ -15,8 +15,37 @@ export const Resume: React.FC = () => {
   }) as ExperienceData[];
   console.log(experienceData);
   return (
-    <div className="grow flex flex-row flex-wrap gap-10">
-      <Text className={"text-7xl"}>Full Stack</Text>
+    <div className=" flex flex-row flex-wrap gap-10">
+      <Text className={"text-7xl"}>FULLSTACK</Text>
+      {/* Lorem ipsum */}
+
+      <Text className={"text-2xl"}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec eros
+        eu urna imperdiet imperdiet. Suspendisse potenti. Phasellus euismod, dui
+        eu feugiat feugiat, augue diam accumsan est, non pretium dui enim id
+        risus. Nam sit amet tincidunt est. Vestibulum malesuada, elit at cursus
+      </Text>
+      <Text className={"text-7xl"}>FRONTEND</Text>
+      <Text className={"text-2xl"}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec eros
+        eu urna imperdiet imperdiet. Suspendisse potenti. Phasellus euismod, dui
+        eu feugiat feugiat, augue diam accumsan est, non pretium dui enim id
+        risus. Nam sit amet tincidunt est. Vestibulum malesuada, elit at cursus
+      </Text>
+      <Text className={"text-7xl"}>BACKEND</Text>
+      <Text className={"text-2xl"}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec eros
+        eu urna imperdiet imperdiet. Suspendisse potenti. Phasellus euismod, dui
+        eu feugiat feugiat, augue diam accumsan est, non pretium dui enim id
+        risus. Nam sit amet tincidunt est. Vestibulum malesuada, elit at cursus
+      </Text>
+      <Text className={"text-7xl"}>DevOps CI/CD</Text>
+      <Text className={"text-2xl"}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec eros
+        eu urna imperdiet imperdiet. Suspendisse potenti. Phasellus euismod, dui
+        eu feugiat feugiat, augue diam accumsan est, non pretium dui enim id
+        risus. Nam sit amet tincidunt est. Vestibulum malesuada, elit at cursus
+      </Text>
     </div>
   );
 };

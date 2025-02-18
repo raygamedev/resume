@@ -13,12 +13,12 @@ export const Text: React.FC<TextProps> = ({
 }) => {
   const [displayedText, setDisplayedText] = useState("");
   const [finished, setFinished] = useState(false);
-  const divWidth = useRef<HTMLDivElement>(null);
+  const divDimensionsRef = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState<number>(0);
   const [height, setHeight] = useState<number>(0);
   useEffect(() => {
-    setWidth(divWidth.current?.offsetWidth || 0);
-    setHeight(divWidth.current?.offsetHeight || 0);
+    setWidth(divDimensionsRef.current?.offsetWidth || 0);
+    setHeight(divDimensionsRef.current?.offsetHeight || 0);
   }, []);
 
   useEffect(() => {
@@ -45,7 +45,7 @@ export const Text: React.FC<TextProps> = ({
       <div className={`w-full ${className || ""}`}>
         {/* Ghost element to reserve the final text layout.
           'text-transparent' makes it invisible while still taking up space. */}
-        <div ref={divWidth} className="invisible">
+        <div ref={divDimensionsRef} className="invisible">
           {children}
         </div>
       </div>
@@ -54,10 +54,10 @@ export const Text: React.FC<TextProps> = ({
 
   return (
     <div
-      className={`w-full ${className || ""}`}
-      style={{ width: width, height: height }}
+      className={`${className || ""}`}
+      style={{ width: width + 18, height: height }}
     >
-      <span>{displayedText}</span>
+      {displayedText}
       <span
         className={`ml-1 text-sm transition-opacity duration-500 ${
           finished ? "opacity-0" : "animate-blink"
