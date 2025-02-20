@@ -2,22 +2,28 @@ import React, { useState, useEffect } from "react";
 
 interface RayHeroProps {
   className?: string;
+  ref?: React.RefObject<HTMLDivElement | null>;
+  style?: React.CSSProperties;
 }
-export const RayHero: React.FC<RayHeroProps> = ({ className }) => {
+export const RayHero: React.FC<RayHeroProps> = ({ className, ref, style }) => {
   const [frames, setFrames] = useState<string[]>([]);
   const [jumpFrames, setJumpFrames] = useState<string[]>([]);
   const [idleFrames, setIdleFrames] = useState<string[]>([]);
   const [isAirborne, setIsAirborne] = useState<boolean>(false);
   const [currentFrameIndex, setCurrentFrameIndex] = useState(0);
 
-  const GenerateFramesFromImg = (imageSrc: string) => {
-    const frameCount = 6;
+  const GenerateFramesFromImg = (
+    imageSrc: string,
+    framesFrom: number = 0,
+    framesTo: number = 6,
+    scale: number = 1,
+  ) => {
     const img = new Image();
     img.src = imageSrc;
     const extractedFrames: string[] = [];
     img.onload = () => {
       // Calculate each frame's width assuming frames are laid out horizontally
-      const frameWidth = img.width / frameCount;
+      const frameWidth = img.width / 6;
       const frameHeight = img.height;
       const canvas = document.createElement("canvas");
       canvas.width = frameWidth;
@@ -25,7 +31,7 @@ export const RayHero: React.FC<RayHeroProps> = ({ className }) => {
       const ctx = canvas.getContext("2d");
 
       if (ctx) {
-        for (let i = 0; i < frameCount; i++) {
+        for (let i = framesFrom; i < framesTo; i++) {
           // Clear the canvas before drawing the next frame
           ctx.clearRect(0, 0, frameWidth, frameHeight);
           // Draw the specific frame from the spritesheet
@@ -37,8 +43,8 @@ export const RayHero: React.FC<RayHeroProps> = ({ className }) => {
             frameHeight,
             0, // destination x
             0, // destination y
-            frameWidth,
-            frameHeight,
+            frameWidth * scale,
+            frameHeight * scale,
           );
           // Convert the canvas content to a data URL (base64 image)
           extractedFrames.push(canvas.toDataURL());
@@ -51,7 +57,7 @@ export const RayHero: React.FC<RayHeroProps> = ({ className }) => {
   useEffect(() => {
     const idle: string[] = GenerateFramesFromImg("/rayHero/idle.png");
     setIdleFrames(idle);
-    const jump: string[] = GenerateFramesFromImg("/rayHero/jump.png");
+    const jump: string[] = GenerateFramesFromImg("/rayHero/jump.png", 2, 4);
     setJumpFrames(jump);
   }, []);
 
@@ -60,13 +66,10 @@ export const RayHero: React.FC<RayHeroProps> = ({ className }) => {
     else setFrames(idleFrames);
   }, [idleFrames, jumpFrames, isAirborne]);
 
-  useEffect(() => {
-    setFrames(idleFrames);
-  }, [idleFrames]);
-
   useEffect(() => {}, []);
   // Cycle through frames on an interval
   useEffect(() => {
+    setCurrentFrameIndex(0);
     if (frames.length === 0) return;
     const interval = setInterval(() => {
       setCurrentFrameIndex((prev) => (prev + 1) % frames.length);
@@ -75,19 +78,22 @@ export const RayHero: React.FC<RayHeroProps> = ({ className }) => {
   }, [frames]);
 
   return (
-    <div className={className}>
-      {frames.length ? (
-        <img src={frames[currentFrameIndex]} alt="RayHero Animation" />
-      ) : (
-        <div>Loading animation...</div>
-      )}
-
-      <button
-        className={"w-30 h-10 bg-amber-600 rounded-xl"}
-        onClick={() => setIsAirborne(!isAirborne)}
-      >
-        Change
-      </button>
+    <div
+      className={className}
+      ref={ref}
+      style={style}
+      onTransitionStart={() => {
+        setIsAirborne(true);
+      }}
+      onTransitionEnd={(e) => {
+        // Check that the transitioned property is 'top'
+        if (e.propertyName === "top") {
+          setIsAirborne(false);
+          // You can update state or call a callback here if needed.
+        }
+      }}
+    >
+      <img src={frames[currentFrameIndex]} alt="RayHero Animation" />
     </div>
   );
 };

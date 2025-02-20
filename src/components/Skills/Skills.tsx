@@ -49,7 +49,7 @@ export const Skills = () => {
     ],
   };
   return (
-    <div className={"flex flex-col"}>
+    <div className={"flex flex-col h-screen justify-center items-center"}>
       <div className={"w-full flex justify-center flex-row gap-8 "}>
         {Skills.skills.map((skill, index) => (
           <SkillCard

@@ -13,7 +13,6 @@ export const Resume: React.FC = () => {
   const experienceData = t("resume.experience", {
     returnObjects: true,
   }) as ExperienceData[];
-  console.log(experienceData);
   return (
     <div className=" flex flex-row flex-wrap gap-10">
       <Text className={"text-7xl"}>FULLSTACK</Text>
