@@ -1,13 +1,19 @@
-import { ReactNode, useEffect, useState } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 import { Vibrant } from "node-vibrant/browser";
 
 interface SkillCardProps {
   skill: string;
   hero: string;
   icon: ReactNode;
+  className?: string;
 }
 
-export const SkillCard: React.FC<SkillCardProps> = ({ skill, hero, icon }) => {
+export const SkillCard: React.FC<SkillCardProps> = ({
+  skill,
+  hero,
+  icon,
+  className = "",
+}) => {
   const [color, setColor] = useState<string>("#f5f5f6");
   const [hovered, setHovered] = useState<boolean>(false);
 
@@ -23,7 +29,10 @@ export const SkillCard: React.FC<SkillCardProps> = ({ skill, hero, icon }) => {
     <div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="w-45 h-52 bg-light-100 dark:bg-dark-900 rounded-2xl relative transition-all duration-300 ease-in-out transform hover:scale-105"
+      className={
+        "w-45 h-52 bg-light-100 dark:bg-dark-900 rounded-2xl relative transition-all duration-300 ease-in-out transform hover:scale-105 " +
+        className
+      }
       style={{
         filter: `saturate(${hovered ? 1 : 0.5}) drop-shadow(0 0 ${hovered ? "15px" : "0px"} ${color})`,
       }}

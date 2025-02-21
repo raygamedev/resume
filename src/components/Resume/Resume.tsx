@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 // import { useTranslation } from "react-i18next";
-import { Text } from "../Text/Text.tsx";
+import { SkillCard } from "../Skills/SkillCard.tsx";
+import "./Resume.css";
 
 export interface ExperienceData {
   jobTitle: string;
@@ -9,34 +10,134 @@ export interface ExperienceData {
   responsibilities: string[];
 }
 export const Resume: React.FC = () => {
-  // const { t } = useTranslation();
-  // const experienceData = t("resume.experience", {
-  //   returnObjects: true,
-  // }) as ExperienceData[];
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+    const sections = container.querySelectorAll(".hide");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+          }
+        });
+      },
+      { threshold: 0.5 },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+      observer.disconnect();
+    };
+  }, []);
+
   return (
-    <div className=" flex flex-row flex-wrap gap-10">
-      <Text className={"text-7xl"}>CORE</Text>
-      <Text className={"text-7xl"}>FRONTEND</Text>
-      <Text className={"text-2xl"}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec eros
-        eu urna imperdiet imperdiet. Suspendisse potenti. Phasellus euismod, dui
-        eu feugiat feugiat, augue diam accumsan est, non pretium dui enim id
-        risus. Nam sit amet tincidunt est. Vestibulum malesuada, elit at cursus
-      </Text>
-      <Text className={"text-7xl"}>BACKEND</Text>
-      <Text className={"text-2xl"}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec eros
-        eu urna imperdiet imperdiet. Suspendisse potenti. Phasellus euismod, dui
-        eu feugiat feugiat, augue diam accumsan est, non pretium dui enim id
-        risus. Nam sit amet tincidunt est. Vestibulum malesuada, elit at cursus
-      </Text>
-      <Text className={"text-7xl"}>DevOps CI/CD</Text>
-      <Text className={"text-2xl"}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec eros
-        eu urna imperdiet imperdiet. Suspendisse potenti. Phasellus euismod, dui
-        eu feugiat feugiat, augue diam accumsan est, non pretium dui enim id
-        risus. Nam sit amet tincidunt est. Vestibulum malesuada, elit at cursus
-      </Text>
+    <div
+      className="flex grow flex-col mt-30 flex-wrap gap-80"
+      ref={containerRef}
+    >
+      <div className={"hide flex flex-col gap-5"}>
+        <div className={"text-7xl  border-b-2"}>FRONTEND</div>
+        <div className={"text-2xl w-3xl mt-5"}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec
+        </div>
+        <div className={"flex flex-row gap-8"}>
+          <SkillCard
+            className={"hide logo"}
+            skill={"React"}
+            hero={"/heros/reactHero.png"}
+            icon={""}
+          />
+          <SkillCard
+            className={"hide logo"}
+            skill={"React"}
+            hero={"/heros/typescriptHero.png"}
+            icon={""}
+          />
+          <SkillCard
+            className={"hide logo"}
+            skill={"React"}
+            hero={"/heros/reduxHero.png"}
+            icon={""}
+          />
+          <SkillCard
+            className={"hide logo"}
+            skill={"React"}
+            hero={"/heros/tailwindHero.png"}
+            icon={""}
+          />
+        </div>
+      </div>
+
+      <div className={"hide flex flex-col gap-3"}>
+        <div className={"text-7xl"}>BACKEND</div>
+        <div className={"text-2xl w-3xl"}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec
+        </div>
+        <div className={"flex flex-row gap-8"}>
+          <SkillCard
+            className={"hide logo"}
+            skill={"React"}
+            hero={"/heros/pythonHero.png"}
+            icon={""}
+          />
+          <SkillCard
+            className={"hide logo"}
+            skill={"React"}
+            hero={"/heros/typescriptHero.png"}
+            icon={""}
+          />
+          <SkillCard
+            className={"hide logo"}
+            skill={"React"}
+            hero={"/heros/rustHero.png"}
+            icon={""}
+          />
+          <SkillCard
+            className={"hide logo"}
+            skill={"React"}
+            hero={"/heros/tailwindHero.png"}
+            icon={""}
+          />
+        </div>
+      </div>
+      <div className={"hide flex flex-col gap-3"}>
+        <div className={"text-7xl"}>DEVOPS CI/CD</div>
+        <div className={"text-2xl w-3xl"}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec
+        </div>
+        <div className={"flex flex-row gap-8"}>
+          <SkillCard
+            className={"hide logo"}
+            skill={"React"}
+            hero={"/heros/reactHero.png"}
+            icon={""}
+          />
+          <SkillCard
+            className={"hide logo"}
+            skill={"React"}
+            hero={"/heros/typescriptHero.png"}
+            icon={""}
+          />
+          <SkillCard
+            className={"hide logo"}
+            skill={"React"}
+            hero={"/heros/reduxHero.png"}
+            icon={""}
+          />
+          <SkillCard
+            className={"hide logo"}
+            skill={"React"}
+            hero={"/heros/tailwindHero.png"}
+            icon={""}
+          />
+        </div>
+      </div>
     </div>
   );
 };

@@ -8,7 +8,13 @@
       color 0.1s ease-in-out;
   }
 }
-html {
+
+@layer components {
+    .side-shadow {
+        box-shadow:
+                -5px 0 10px rgba(0, 0, 0, 0.15),
+                5px 0 10px rgba(0, 0, 0, 0.15);
+    }
 }
 
 @theme {
@@ -18,36 +24,8 @@ html {
     --color-dark-700: rgb(73, 73, 73);
     --gradient-dark: repeating-linear-gradient(to right, rgb(25,25,25) 0 1px, transparent 2px 200px);
 }
-::-moz-selection { /* Code for Firefox */
-  color: #ffae00;
-  /*background: white;*/
-}
 
-::selection {
-  color: #ffae00;
-  /*background: white;*/
 
-}
-@layer components {
-  .side-shadow {
-    box-shadow:
-      -5px 0 10px rgba(0, 0, 0, 0.15),
-      5px 0 10px rgba(0, 0, 0, 0.15);
-  }
-}
-
-section {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    scroll-snap-align: start;
-}
-
-.home {
-    scroll-snap-type: y mandatory;
-    overflow-y: scroll;
-    height: 100vh;
-}
 
 @font-face {
   font-family: "Roboto Mono";
@@ -131,3 +109,13 @@ section {
     --font-vcr: "VCR OSD Mono";
 }
 
+::-moz-selection { /* Code for Firefox */
+    color: #ffae00;
+    /*background: white;*/
+}
+
+::selection {
+    color: #ffae00;
+    /*background: white;*/
+
+}

@@ -28,6 +28,7 @@ export const Home: React.FC<HomeProps> = ({ setFloatingTop, floatingRef }) => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
+            entry.target.classList.add("opacity-100");
             const sectionName = entry.target.getAttribute("data-section");
             // Only update if the new section is different from the current activeSection.
             if (sectionName && sectionName !== activeSection) {
@@ -36,7 +37,7 @@ export const Home: React.FC<HomeProps> = ({ setFloatingTop, floatingRef }) => {
           }
         });
       },
-      { threshold: 0.5 },
+      { threshold: 0.3 },
     );
 
     sections.forEach((section) => observer.observe(section));
@@ -46,8 +47,8 @@ export const Home: React.FC<HomeProps> = ({ setFloatingTop, floatingRef }) => {
       observer.disconnect();
     };
   }, [activeSection, setActiveSection]);
-  //
-  // // Update the floating object's position when the active section changes.
+
+  // Update the floating object's position when the active section changes.
   useEffect(() => {
     if (!activeSection || !containerRef.current) return;
 
@@ -64,24 +65,18 @@ export const Home: React.FC<HomeProps> = ({ setFloatingTop, floatingRef }) => {
   }, [activeSection, floatingRef, setFloatingTop]);
   //
 
-  // Function to scroll smoothly to a section
-  const scrollToSection = (sectionName: string) => {
-    if (containerRef.current) {
-      const section = containerRef.current.querySelector(
-        `section[data-section="${sectionName}"]`,
-      );
-      if (section) {
-        section.scrollIntoView({ behavior: "smooth" });
-        setTriggerScroll(Sections.NONE);
-      }
-    }
-  };
-
   useEffect(() => {
-    if (triggerScroll !== activeSection) {
-      scrollToSection(triggerScroll);
+    if (triggerScroll === activeSection) return;
+    if (!containerRef.current) return;
+
+    const section = containerRef.current.querySelector(
+      `section[data-section="${triggerScroll}"]`,
+    );
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+      setTriggerScroll(Sections.NONE); // reset trigger
     }
-  }, [triggerScroll, activeSection, scrollToSection]);
+  }, [triggerScroll, activeSection, setTriggerScroll]);
 
   return (
     <div className="pt-16">
@@ -89,22 +84,22 @@ export const Home: React.FC<HomeProps> = ({ setFloatingTop, floatingRef }) => {
         {/* Relative container for scrolling */}
         <div
           ref={containerRef}
-          className="w-3/5 p-4 flex flex-col items-center justify-start gap-30 relative scroll-smooth"
+          className="min-h-screen w-3/5 p-4 flex flex-col items-center justify-start gap-30 relative scroll-smooth"
         >
           <section
-            className="h-screen flex items-center"
+            className="min-h-screen flex items-center opacity-0  transition-all duration-500"
             data-section={Sections.ABOUT}
           >
             <Profile />
           </section>
           <section
-            className="h-screen flex items-center"
+            className="min-h-screen flex items-center "
             data-section={Sections.CORE}
           >
             <Resume />
           </section>
           <section
-            className="h-screen flex items-center"
+            className="min-h-screen flex items-center opacity-0  transition-all duration-500"
             data-section={Sections.SKILLS}
           >
             <Skills />
