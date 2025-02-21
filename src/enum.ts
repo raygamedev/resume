@@ -1,4 +1,5 @@
-export const enum ActiveSection {
+export enum Sections {
+  NONE = "NONE",
   ABOUT = "ABOUT",
   CORE = "CORE",
   SKILLS = "SKILLS",

@@ -1,23 +1,21 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { Profile } from "../Profile/Profile";
 import { Skills } from "../Skills/Skills";
 import { Resume } from "../Resume/Resume";
-import { ActiveSection } from "../../enum.ts";
+import { Sections } from "../../enum.ts";
+import { useNavStore } from "../../store.ts";
 
 interface HomeProps {
   setFloatingTop: React.Dispatch<React.SetStateAction<number>>;
   floatingRef: React.RefObject<HTMLDivElement | null>;
-  activeSection: string;
-  setActiveSection: React.Dispatch<React.SetStateAction<ActiveSection>>;
 }
 
-export const Home: React.FC<HomeProps> = ({
-  setFloatingTop,
-  floatingRef,
-  activeSection,
-  setActiveSection,
-}) => {
+export const Home: React.FC<HomeProps> = ({ setFloatingTop, floatingRef }) => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const activeSection = useNavStore((state) => state.activeSection);
+  const setActiveSection = useNavStore((state) => state.setSection);
+  const triggerScroll = useNavStore((state) => state.triggerScroll);
+  const setTriggerScroll = useNavStore((state) => state.setTriggerScroll);
 
   // Set up Intersection Observer to detect which section is active.
   useEffect(() => {
@@ -31,8 +29,9 @@ export const Home: React.FC<HomeProps> = ({
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const sectionName = entry.target.getAttribute("data-section");
-            if (sectionName) {
-              setActiveSection(sectionName as ActiveSection);
+            // Only update if the new section is different from the current activeSection.
+            if (sectionName && sectionName !== activeSection) {
+              setActiveSection(sectionName as Sections);
             }
           }
         });
@@ -44,10 +43,11 @@ export const Home: React.FC<HomeProps> = ({
 
     return () => {
       sections.forEach((section) => observer.unobserve(section));
+      observer.disconnect();
     };
-  }, [setActiveSection]);
-
-  // Update the floating object's position when the active section changes.
+  }, [activeSection, setActiveSection]);
+  //
+  // // Update the floating object's position when the active section changes.
   useEffect(() => {
     if (!activeSection || !containerRef.current) return;
 
@@ -62,6 +62,7 @@ export const Home: React.FC<HomeProps> = ({
       setFloatingTop(targetTop);
     }
   }, [activeSection, floatingRef, setFloatingTop]);
+  //
 
   // Function to scroll smoothly to a section
   const scrollToSection = (sectionName: string) => {
@@ -71,9 +72,16 @@ export const Home: React.FC<HomeProps> = ({
       );
       if (section) {
         section.scrollIntoView({ behavior: "smooth" });
+        setTriggerScroll(Sections.NONE);
       }
     }
   };
+
+  useEffect(() => {
+    if (triggerScroll !== activeSection) {
+      scrollToSection(triggerScroll);
+    }
+  }, [triggerScroll, activeSection, scrollToSection]);
 
   return (
     <div className="pt-16">
@@ -85,19 +93,19 @@ export const Home: React.FC<HomeProps> = ({
         >
           <section
             className="h-screen flex items-center"
-            data-section={ActiveSection.ABOUT}
+            data-section={Sections.ABOUT}
           >
             <Profile />
           </section>
           <section
             className="h-screen flex items-center"
-            data-section={ActiveSection.CORE}
+            data-section={Sections.CORE}
           >
             <Resume />
           </section>
           <section
             className="h-screen flex items-center"
-            data-section={ActiveSection.SKILLS}
+            data-section={Sections.SKILLS}
           >
             <Skills />
           </section>
