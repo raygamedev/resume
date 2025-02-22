@@ -34,7 +34,7 @@ on: [ push ]
 env:
   PROJECT_ID: 'gefiltefire' # TODO: update to your Google Cloud project ID
   REGION: 'us-central1' # TODO: update to your region
-  SERVICE: 'raydevs' # TODO: update to your service name
+  SERVICE: 'gefilte' # TODO: update to your service name
   WORKLOAD_IDENTITY_PROVIDER: 'projects/123456789/locations/global/workloadIdentityPools/my-pool/providers/my-provider' # TODO: update to your workload identity provider
 
 jobs:
@@ -62,13 +62,13 @@ jobs:
       # BEGIN - Docker auth and build
       #
 #      # If you already have a container image, you can omit these steps.
-      - name: Set up Google Cloud SDK
-        uses: google-github-actions/setup-gcloud@v2
-        with:
-          project_id: gefiltefire
-
-      - name: Configure Docker
-        run:  gcloud auth configure-docker us-central1-docker.pkg.dev --quiet
+#      - name: Set up Google Cloud SDK
+#        uses: google-github-actions/setup-gcloud@v2
+#        with:
+#          project_id: gefiltefire
+#
+#      - name: Configure Docker
+#        run:  gcloud auth configure-docker us-central1-docker.pkg.dev --quiet
 
       - name: 'Build and Push Container'
         run: |-
