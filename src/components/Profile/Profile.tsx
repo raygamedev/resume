@@ -18,7 +18,7 @@ export const Profile: React.FC = () => {
         <div className="text-dark-700">ABOUT:</div>
         {/* Name Section */}
         <div className="flex flex-row gap-3 justify-start">
-          <Text className="text-6xl">HELLO RAYMOND</Text>
+          <Text className="text-6xl">DAN RAYMOND</Text>
         </div>
         {/* Title/Location Section */}
         <Text className="text-2xl">{t("job_title")}</Text>

@@ -18,3 +18,13 @@ export const useNavStore = create<NavStore>((set) => ({
     set({ triggerScroll });
   },
 }));
+
+interface MobileState {
+  isMobile: boolean;
+  setIsMobile: (value: boolean) => void;
+}
+
+export const useMobileStore = create<MobileState>((set) => ({
+  isMobile: false,
+  setIsMobile: (value) => set({ isMobile: value }),
+}));
