@@ -80,8 +80,8 @@ jobs:
         with:
           context: .
           file: ./Dockerfile
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+#          cache-from: type=gha
+#          cache-to: type=gha,mode=max
           push: true
           tags: "us-central1-docker.pkg.dev/gefiltefire/raydevs/raydevs:latest"
 
