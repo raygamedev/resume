@@ -5,6 +5,8 @@ import { useRef, useState } from "react";
 
 const App = () => {
   const floatingRef = useRef<HTMLDivElement>(null);
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
   const [floatingTop, setFloatingTop] = useState<number>(0);
   return (
     <div

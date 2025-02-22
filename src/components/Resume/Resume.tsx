@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 // import { useTranslation } from "react-i18next";
 import { SkillCard } from "../Skills/SkillCard.tsx";
 import "./Resume.css";
+import { Skills } from "../../skills.ts";
 
 export interface ExperienceData {
   jobTitle: string;
@@ -36,6 +37,14 @@ export const Resume: React.FC = () => {
     };
   }, []);
 
+  const FrontendSkills = [
+    Skills.react,
+    Skills.redux,
+    Skills.typescript,
+    Skills.tailwind,
+  ];
+  const BackendSkills = [Skills.python, Skills.unity, Skills.rust];
+
   return (
     <div
       className="flex grow flex-col mt-30 flex-wrap gap-80"
@@ -47,30 +56,9 @@ export const Resume: React.FC = () => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec
         </div>
         <div className={"flex flex-row gap-8"}>
-          <SkillCard
-            className={"hide logo"}
-            skill={"React"}
-            hero={"/heros/reactHero.png"}
-            icon={""}
-          />
-          <SkillCard
-            className={"hide logo"}
-            skill={"React"}
-            hero={"/heros/typescriptHero.png"}
-            icon={""}
-          />
-          <SkillCard
-            className={"hide logo"}
-            skill={"React"}
-            hero={"/heros/reduxHero.png"}
-            icon={""}
-          />
-          <SkillCard
-            className={"hide logo"}
-            skill={"React"}
-            hero={"/heros/tailwindHero.png"}
-            icon={""}
-          />
+          {FrontendSkills.map((skill) => (
+            <SkillCard className={"hide logo"} skill={skill} />
+          ))}
         </div>
       </div>
 
@@ -80,62 +68,20 @@ export const Resume: React.FC = () => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec
         </div>
         <div className={"flex flex-row gap-8"}>
-          <SkillCard
-            className={"hide logo"}
-            skill={"React"}
-            hero={"/heros/pythonHero.png"}
-            icon={""}
-          />
-          <SkillCard
-            className={"hide logo"}
-            skill={"React"}
-            hero={"/heros/typescriptHero.png"}
-            icon={""}
-          />
-          <SkillCard
-            className={"hide logo"}
-            skill={"React"}
-            hero={"/heros/rustHero.png"}
-            icon={""}
-          />
-          <SkillCard
-            className={"hide logo"}
-            skill={"React"}
-            hero={"/heros/tailwindHero.png"}
-            icon={""}
-          />
+          {BackendSkills.map((skill) => (
+            <SkillCard className={"hide logo"} skill={skill} />
+          ))}
         </div>
       </div>
-      <div className={"hide flex flex-col gap-3"}>
+      <div className={"hide flex flex-col gap-5"}>
         <div className={"text-7xl"}>DEVOPS CI/CD</div>
         <div className={"text-2xl w-3xl"}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec
         </div>
         <div className={"flex flex-row gap-8"}>
-          <SkillCard
-            className={"hide logo"}
-            skill={"React"}
-            hero={"/heros/reactHero.png"}
-            icon={""}
-          />
-          <SkillCard
-            className={"hide logo"}
-            skill={"React"}
-            hero={"/heros/typescriptHero.png"}
-            icon={""}
-          />
-          <SkillCard
-            className={"hide logo"}
-            skill={"React"}
-            hero={"/heros/reduxHero.png"}
-            icon={""}
-          />
-          <SkillCard
-            className={"hide logo"}
-            skill={"React"}
-            hero={"/heros/tailwindHero.png"}
-            icon={""}
-          />
+          {BackendSkills.map((skill) => (
+            <SkillCard className={"hide logo"} skill={skill} />
+          ))}
         </div>
       </div>
     </div>

@@ -1,11 +1,11 @@
 import { SkillCard } from "./SkillCard.tsx";
-import { TypescriptSVG } from "./assets/TypescriptSVG.tsx";
-import { PythonSVG } from "./assets/PythonSVG.tsx";
-import { TailwindSVG } from "./assets/TailwindSVG.tsx";
-import { ReduxSVG } from "./assets/ReduxSVG.tsx";
-import { RustSVG } from "./assets/RustSVG.tsx";
-import { ReactSVG } from "./assets/ReactSVG.tsx";
-import { UnitySVG } from "./assets/UnitySVG.tsx";
+import { TypescriptSVG } from "../../../public/skills/icons/TypescriptSVG.tsx";
+import { PythonSVG } from "../../../public/skills/icons/PythonSVG.tsx";
+import { TailwindSVG } from "../../../public/skills/icons/TailwindSVG.tsx";
+import { ReduxSVG } from "../../../public/skills/icons/ReduxSVG.tsx";
+// import { RustSVG } from "../../skills/RustSVG.tsx";
+import { ReactSVG } from "../../../public/skills/icons/ReactSVG.tsx";
+import { UnitySVG } from "../../../public/skills/icons/UnitySVG.tsx";
 
 export const Skills = () => {
   const Skills = {
@@ -41,11 +41,11 @@ export const Skills = () => {
         hero: "/heros/typescriptHero.png",
         icon: <TypescriptSVG />,
       },
-      {
-        name: "Rust",
-        hero: "/heros/rustHero.png",
-        icon: <RustSVG />,
-      },
+      // {
+      //   name: "Rust",
+      //   hero: "/heros/rustHero.png",
+      //   icon: <RustSVG />,
+      // },
     ],
   };
   return (

@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from "react";
 import { Profile } from "../Profile/Profile";
-import { Skills } from "../Skills/Skills";
 import { Resume } from "../Resume/Resume";
 import { Sections } from "../../enum.ts";
 import { useNavStore } from "../../store.ts";
@@ -102,7 +101,7 @@ export const Home: React.FC<HomeProps> = ({ setFloatingTop, floatingRef }) => {
             className="min-h-screen flex items-center opacity-0  transition-all duration-500"
             data-section={Sections.SKILLS}
           >
-            <Skills />
+            {/*<Skills />*/}
           </section>
         </div>
       </div>
