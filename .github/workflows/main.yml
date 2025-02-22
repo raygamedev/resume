@@ -1,0 +1,94 @@
+name: Raydevs
+
+on: [ push ]
+
+jobs:
+  build:
+#    name: Build Raydevs Game
+#    runs-on: ubuntu-latest
+#    steps:
+#
+#      - name: Free Disk Space (Ubuntu)
+#        uses: jlumbroso/free-disk-space@main
+#        with:
+#          # this might remove tools that are actually needed,
+#          # if set to "true" but frees about 6 GB
+#          tool-cache: false
+#
+#          # all of these default to true, but feel free to set to
+#          # "false" if necessary for your workflow
+#          android: true
+#          dotnet: true
+#          haskell: true
+#          large-packages: true
+#          docker-images: true
+#          swap-storage: true
+#      # Checkout
+#      - name: Checkout repository
+#        uses: actions/checkout@v4.1.7
+#        with:
+#          lfs: true
+#
+#      # Cache
+#      - uses: actions/cache@v2
+#        with:
+#          path: raydevs/Library
+#          key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+#          restore-keys: |
+#            Library-
+#
+#      # Build
+#      - name: Build project
+#        uses: game-ci/unity-builder@v4.2.3
+#        env:
+#          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+#          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+#          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+#          GITHUB_TOKEN: ${{ secrets.GHCR_TOKEN }}
+#        with:
+#          unityVersion: 6000.0.15f1
+#          projectPath: raydevs
+#          targetPlatform: WebGL
+#
+#      # Output
+#      - uses: actions/upload-artifact@v4.3.6
+#        with:
+#          name: Build
+#          path: build
+#      - name: Set up Docker Buildx
+#        uses: docker/setup-buildx-action@v3
+#        with:
+#          install: true  # Ensure Buildx is installed
+#          driver-opts: image=moby/buildkit:master  # Use the latest version for better platform support
+
+      - name: Google Auth
+        id: auth
+        uses: 'google-github-actions/auth@v2'
+        with:
+          credentials_json: '${{ secrets.GRC_KEY }}'
+
+      - name: Set up Google Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+        with:
+          project_id: gefiltefire
+
+      - name: Configure Docker
+        run:  gcloud auth configure-docker us-central1-docker.pkg.dev --quiet
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          push: true
+          tags: "us-central1-docker.pkg.dev/gefiltefire/raydevs/raydevs:latest"
+
+      - name: Deploy to Cloud Run
+        id: deploy
+        uses: google-github-actions/deploy-cloudrun@v2
+        with:
+          service: gefilte-docker
+          region: us-central1
+          image: "us-central1-docker.pkg.dev/gefiltefire/raydevs/raydevs:latest"

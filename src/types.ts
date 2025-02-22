@@ -1,4 +1,3 @@
-import { Swatch } from "@vibrant/color";
 import { PaletteColor } from "./enum.ts";
 export interface ExperienceData {
   jobTitle: string;
