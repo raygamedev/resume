@@ -1,7 +1,5 @@
 name: Raydevs
 
-on: [ push ]
-
 jobs:
   build:
     name: Build Raydevs Game
