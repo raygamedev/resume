@@ -4,9 +4,9 @@ on: [ push ]
 
 jobs:
   build:
-#    name: Build Raydevs Game
-#    runs-on: ubuntu-latest
-#    steps:
+    name: Build Raydevs Game
+    runs-on: ubuntu-latest
+    steps:
 #
 #      - name: Free Disk Space (Ubuntu)
 #        uses: jlumbroso/free-disk-space@main
