@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Vibrant } from "node-vibrant/browser";
 import { Skill } from "../../types.ts";
+import { PaletteColor } from "../../enum.ts";
 
 interface SkillCardProps {
   skill: Skill;
@@ -18,9 +19,21 @@ export const SkillCard: React.FC<SkillCardProps> = ({
     void Vibrant.from(skill.hero)
       .getPalette()
       .then((palette) => {
-        if (palette.LightVibrant?.hex) setColor(palette.LightVibrant.hex);
+        if (skill.palette === PaletteColor.VIBRANT) {
+          if (palette.Vibrant?.hex) setColor(palette.Vibrant.hex);
+        } else if (skill.palette === PaletteColor.MUTED) {
+          if (palette.Muted?.hex) setColor(palette.Muted.hex);
+        } else if (skill.palette === PaletteColor.DARK_VIBRANT) {
+          if (palette.DarkVibrant?.hex) setColor(palette.DarkVibrant.hex);
+        } else if (skill.palette === PaletteColor.DARK_MUTED) {
+          if (palette.DarkMuted?.hex) setColor(palette.DarkMuted.hex);
+        } else if (skill.palette === PaletteColor.LIGHT_VIBRANT) {
+          if (palette.LightVibrant?.hex) setColor(palette.LightVibrant.hex);
+        } else if (skill.palette === PaletteColor.LIGHT_MUTED) {
+          if (palette.LightMuted?.hex) setColor(palette.LightMuted.hex);
+        }
       });
-  }, [skill.hero]);
+  }, [skill.hero, skill.palette]);
 
   return (
     <div className={`relative inline-block ${className}`}>
