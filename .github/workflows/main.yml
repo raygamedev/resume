@@ -81,7 +81,7 @@ jobs:
 #          cache-from: type=gha
 #          cache-to: type=gha,mode=max
           push: true
-          tags: "us-central1-docker.pkg.dev/gefiltefire/raydevs/raydevs:latest"
+          tags: "us-central1-docker.pkg.dev/gefiltefire/gefilte/raydevs:latest"
 
       - name: Deploy to Cloud Run
         id: deploy
@@ -89,4 +89,4 @@ jobs:
         with:
           service: gefilte-docker
           region: us-central1
-          image: "us-central1-docker.pkg.dev/gefiltefire/raydevs/raydevs:latest"
+          image: "us-central1-docker.pkg.dev/gefiltefire/gefilte/raydevs:latest"
