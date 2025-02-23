@@ -54,12 +54,12 @@ export const Text: React.FC<TextProps> = ({
 
   return (
     <div
-      className={`${className || ""}`}
+      className={`text-dark-700 dark:text-yellow-50 ${className || ""} `}
       style={{ width: width + 18, height: height }}
     >
       {displayedText}
       <span
-        className={`ml-1 text-sm transition-opacity duration-500 ${
+        className={`ml-1 text-sm transition-opacity duration-300 ${
           finished ? "opacity-0" : "animate-blink"
         }`}
       >

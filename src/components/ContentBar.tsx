@@ -15,8 +15,8 @@ export const ContentBar: React.FC = () => {
             onClick={() => setTriggerScroll(item)}
             className={`relative p-1 active:text-amber-600 cursor-pointer transition-all duration-200 ease-in-out text-2xl ${
               item === activeSection
-                ? "text-yellow-50 scale-110"
-                : "text-gray-400 hover:text-gray-300 scale-100"
+                ? "text-t-dark  dark:text-t-light scale-110"
+                : "text-zinc-500 hover:text-zinc-300 hover:scale-100 scale-90"
             }`}
           >
             {item.toUpperCase()}

@@ -10,9 +10,10 @@ interface DropdownProps {
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
   items: DropdownItem[];
-  onSelect: (item: DropdownItem) => void;
+  onSelect?: (item: DropdownItem) => void;
   // Add a ref for the dropdown button.
   buttonRef: React.RefObject<HTMLElement | null>;
+  className?: string;
 }
 
 export const Dropdown: React.FC<DropdownProps> = ({
@@ -21,6 +22,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
   items,
   onSelect,
   buttonRef,
+  className = "",
 }) => {
   const { t } = useTranslation();
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -49,11 +51,13 @@ export const Dropdown: React.FC<DropdownProps> = ({
   return (
     <div
       ref={dropdownRef}
-      className={`absolute dark:bg-zinc-900 left-1/2 top-full transform -translate-x-1/2 mt-2 w-max p-2 shadow rounded transition-all duration-200 ease-out flex-col flex ${
-        isOpen
-          ? "opacity-100 translate-y-0 pointer-events-auto"
-          : "opacity-0 -translate-y-2 pointer-events-none"
-      }`}
+      className={
+        `absolute dark:bg-zinc-900 md:left-1/2 md:top-full md:transform md:-translate-x-1/2 md:mt-2 min-w-max md:p-2 shadow rounded transition-all duration-200 ease-out flex-col flex ${
+          isOpen
+            ? "opacity-100 translate-y-0 pointer-events-auto"
+            : "opacity-0 -translate-y-2 pointer-events-none"
+        } ` + className
+      }
     >
       {items.map((item, index) => {
         const isLast = index === items.length - 1;
@@ -64,7 +68,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
             )}
             <div
               className="hover:bg-yellow-100 dark:hover:bg-zinc-800 p-2 duration-200 rounded cursor-pointer flex items-center"
-              onClick={() => onSelect(item)}
+              onClick={() => onSelect?.(item)}
             >
               {item.icon && <span className="mr-2">{item.icon}</span>}
               {t(item.value)}

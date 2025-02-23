@@ -15,20 +15,20 @@ export const Profile: React.FC = () => {
     <div className="flex flex-row  mx-auto font-proxima justify-around items-stretch min-h-[600px] dark:text-yellow-50">
       {/* About Section */}
       <div className="flex-1 flex flex-col justify-start h-full">
-        <div className="text-dark-700">ABOUT:</div>
+        <div className="text-t-semi-dark">ABOUT:</div>
         {/* Name Section */}
         <div className="flex flex-row gap-3 justify-start">
-          <Text className="text-6xl">DAN RAYMOND</Text>
+          <Text className="text-[80px]">DAN RAYMOND</Text>
         </div>
         {/* Title/Location Section */}
         <Text className="text-2xl">{t("job_title")}</Text>
-        <Text className={"mt-10 text-dark-700"}>LOCATION:</Text>
+        <div className={"mt-10  text-t-semi-dark"}>LOCATION:</div>
         <div className="flex flex-row gap-1">
           <Text className="text-xl w-max">{profileData.location.city}</Text>
           <Text className="text-xl w-max">{profileData.location.country}</Text>
         </div>
         {/* Contact Section */}
-        <Text className="mt-10 text-dark-700">CONTACT:</Text>
+        <div className="mt-10 text-t-semi-dark">CONTACT:</div>
         <div className={"flex flex-row gap-3 items-center"}>
           <EnvelopeIcon className="w-6 h-6 text-blue-500" />
           <Text>dan@raydevs.com</Text>
@@ -42,7 +42,7 @@ export const Profile: React.FC = () => {
             rel="noopener noreferrer"
             className=" hover:text-blue-500"
           >
-            linkedin.com/in/ray-dev
+            Linkedin
           </a>
         </div>
         <button className="mt-4 px-6 py-2 text-white bg-orange-500 hover:bg-orange-600 rounded transition-colors w-40">
@@ -52,7 +52,7 @@ export const Profile: React.FC = () => {
 
       {/* Description Section */}
       <div className="flex-1 flex flex-col justify-start overflow-auto h-full">
-        <div className="text-dark-700">DESCRIPTION:</div>
+        <div className="text-t-semi-dark">DESCRIPTION:</div>
         {profileData.description.map((item, index) => (
           <div key={index} className="flex flex-row gap-3 p-3">
             <div>{t("bullet")}</div>

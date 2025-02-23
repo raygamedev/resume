@@ -27,21 +27,23 @@ export const LanguageSetting: React.FC = () => {
   };
 
   return (
-    <div className="relative inline-block">
+    <div className="relative inline-block ">
       {/* Dropdown toggle button */}
       <div
         ref={buttonRef}
         className="flex flex-row cursor-pointer justify-between space-x-0.5 px-2 py-2 w-25 hover:bg-zinc-800 duration-200 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
         onClick={() => setIsOpen((prev) => !prev)}
       >
-        <div className="w-7 flex justify-center">
+        <div className="w-7 flex justify-center ">
           {language === "en" ? (
-            <GlobeAmericasIcon className="w-6" />
+            <GlobeAmericasIcon className="w-6 text-t-dark dark:text-t-light" />
           ) : (
-            <GlobeAsiaAustraliaIcon className="w-6" />
+            <GlobeAsiaAustraliaIcon className="w-6 text-t-dark dark:text-t-light" />
           )}
         </div>
-        <div className="grow text-center">{t(language)}</div>
+        <div className="grow text-center text-t-dark dark:text-t-light">
+          {t(language)}
+        </div>
       </div>
 
       {/* Dropdown menu */}

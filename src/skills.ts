@@ -12,7 +12,7 @@ export const Skills: { [name: string]: Skill } = {
     name: "Redux",
     icon: "/skills/icons/redux.svg",
     hero: "/skills/heroes/reduxHero.png",
-    palette: PaletteColor.MUTED,
+    palette: PaletteColor.LIGHT_VIBRANT,
   },
   tailwind: {
     name: "TailwindCSS",
@@ -30,13 +30,13 @@ export const Skills: { [name: string]: Skill } = {
     name: "Python",
     icon: "/skills/icons/python.svg",
     hero: "/skills/heroes/pythonHero.png",
-    palette: PaletteColor.LIGHT_MUTED,
+    palette: PaletteColor.VIBRANT,
   },
   unity: {
     name: "Unity",
     icon: "/skills/icons/unity.svg",
     hero: "/skills/heroes/unityHero.png",
-    palette: PaletteColor.DARK_MUTED,
+    palette: PaletteColor.LIGHT_MUTED,
   },
   rust: {
     name: "Rust",

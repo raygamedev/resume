@@ -18,7 +18,13 @@
 }
 
 @theme {
-    --color-light-100: #f5f5f6;
+    --color-t-light: #FEFCE8FF;
+    --color-t-semi-light: #f5f5f6;
+
+    --color-t-dark: rgb(73, 73, 73);
+    --color-t-semi-dark: rgb(110, 110, 110);
+
+    --color-light: #f5f5f6;
     --color-dark-900: rgb(17, 17, 17);
     --color-dark-800: rgb(33, 33, 33);
     --color-dark-700: rgb(73, 73, 73);
