@@ -28,3 +28,12 @@ export const useMobileStore = create<MobileState>((set) => ({
   isMobile: false,
   setIsMobile: (value) => set({ isMobile: value }),
 }));
+
+interface ScrollState {
+  isScrolling: boolean;
+  setIsScrolling: (value: boolean) => void;
+}
+export const useScrollStore = create<ScrollState>((set) => ({
+  isScrolling: false,
+  setIsScrolling: (value) => set({ isScrolling: value }),
+}));

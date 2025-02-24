@@ -2,7 +2,7 @@ import { Header } from "./components/Header/Header";
 import { Home } from "./components/Home/Home";
 import { Version } from "./components/Version/Version.tsx";
 import { useRef, useState, useEffect } from "react";
-import { useMobileStore } from "./store";
+import { useMobileStore, useScrollStore } from "./store";
 
 const App = () => {
   const floatingRef = useRef<HTMLDivElement>(null);
@@ -11,6 +11,31 @@ const App = () => {
   const [floatingTop, setFloatingTop] = useState<number>(0);
 
   const { isMobile, setIsMobile } = useMobileStore();
+  const setIsScrolling = useScrollStore((state) => state.setIsScrolling);
+
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+
+    const handleScroll = () => {
+      // Update the ref directly without re-rendering the component
+      setIsScrolling(true);
+      // Clear the previous timeout if any
+      if (timer) clearTimeout(timer);
+      // Set a timeout to mark scrolling as stopped after 100ms of inactivity
+      timer = setTimeout(() => {
+        setIsScrolling(false);
+        // Optional: perform any actions here when scrolling stops
+        console.log("Scrolling stopped");
+      }, 400);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [setIsScrolling]);
 
   useEffect(() => {
     // Function to update mobile state

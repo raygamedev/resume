@@ -36,7 +36,7 @@ export const Home: React.FC<HomeProps> = ({ setFloatingTop, floatingRef }) => {
           }
         });
       },
-      { threshold: 0.3 },
+      // { threshold: 0.2 },
     );
 
     sections.forEach((section) => observer.observe(section));

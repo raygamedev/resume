@@ -34,14 +34,14 @@ export const ThemeToggleButton: React.FC = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="flex items-center justify-center p-2 rounded-full border border-gray-300 dark:border-gray-600 shadow transition-colors duration-300 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+      className="flex items-center justify-center p-2 rounded-full border border-gray-300 dark:border-zinc-600 shadow transition-colors duration-300 hover:bg-gray-200 dark:hover:bg-zinc-700 "
       aria-label="Toggle Dark Mode"
     >
       {isDark ? (
         // When in dark mode, show the sun icon to indicate a switch to light mode
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6 text-yellow-500"
+          className="h-6 w-6 text-t-light"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
