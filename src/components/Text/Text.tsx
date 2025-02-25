@@ -17,9 +17,10 @@ export const Text: React.FC<TextProps> = ({
   const [width, setWidth] = useState<number>(0);
   const [height, setHeight] = useState<number>(0);
   useEffect(() => {
+    if (!divDimensionsRef.current) return;
     setWidth(divDimensionsRef.current?.offsetWidth || 0);
     setHeight(divDimensionsRef.current?.offsetHeight || 0);
-  }, []);
+  }, [divDimensionsRef]);
 
   useEffect(() => {
     const text = children?.toString();
@@ -42,7 +43,7 @@ export const Text: React.FC<TextProps> = ({
 
   if (width === 0 || height === 0) {
     return (
-      <div className={`w-full ${className || ""}`}>
+      <div className={`w-full h-full ${className || ""}`}>
         {/* Ghost element to reserve the final text layout.
           'text-transparent' makes it invisible while still taking up space. */}
         <div ref={divDimensionsRef} className="invisible">
@@ -54,8 +55,8 @@ export const Text: React.FC<TextProps> = ({
 
   return (
     <div
-      className={`text-dark-700 dark:text-yellow-50 ${className || ""} `}
-      style={{ width: width + 18, height: height }}
+      className={`text-dark-700  dark:text-yellow-50 ${className || ""} `}
+      // style={{ width: width + 18, height: height }}
     >
       {displayedText}
       <span
