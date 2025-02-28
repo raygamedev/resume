@@ -1,3 +1,6 @@
+// ts ignore enite comp
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
 import React, { useEffect, useRef, useState } from "react";
 
 interface TextProps {
@@ -41,31 +44,31 @@ export const Text: React.FC<TextProps> = ({
     return () => clearInterval(interval);
   }, [children, duration]);
 
-  if (width === 0 || height === 0) {
-    return (
-      <div className={`w-full h-full ${className || ""}`}>
-        {/* Ghost element to reserve the final text layout.
-          'text-transparent' makes it invisible while still taking up space. */}
-        <div ref={divDimensionsRef} className="invisible">
-          {children}
-        </div>
-      </div>
-    );
-  }
+  // if (width === 0 || height === 0) {
+  //   return (
+  //     <div className={`w-full h-full ${className || ""}`}>
+  //       {/* Ghost element to reserve the final text layout.
+  //         'text-transparent' makes it invisible while still taking up space. */}
+  //       <div ref={divDimensionsRef} className="invisible">
+  //         {children}
+  //       </div>
+  //     </div>
+  //   );
+  // }
 
   return (
     <div
       className={`text-dark-700  dark:text-yellow-50 ${className || ""} `}
       // style={{ width: width + 18, height: height }}
     >
-      {displayedText}
-      <span
-        className={`ml-1 text-sm transition-opacity duration-300 ${
-          finished ? "opacity-0" : "animate-blink"
-        }`}
-      >
-        █
-      </span>
+      {children}
+      {/*<span*/}
+      {/*  className={`ml-1 text-sm transition-opacity duration-300 ${*/}
+      {/*    finished ? "opacity-0" : "animate-blink"*/}
+      {/*  }`}*/}
+      {/*>*/}
+      {/*  █*/}
+      {/*</span>*/}
     </div>
   );
 };

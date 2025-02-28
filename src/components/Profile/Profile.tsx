@@ -47,12 +47,14 @@ export const Profile: React.FC = () => {
           </button>
         </div>
         {/* Description Section */}
-        <div className="flex flex-col  mt-6">
+        <div className="flex flex-col gap-10  mt-6">
           <div className="text-t-semi-dark">DESCRIPTION:</div>
           {profileData.description.map((item, index) => (
             <div key={index} className="flex  grow flex-row gap-3 py-1 px-3">
-              <div className={""}>{t("bullet")}</div>
-              <Text className="text-xl h-30 w-full grow">{item}</Text>
+              <div className={"text-t-semi-dark dark:text-t-light"}>
+                {t("bullet")}
+              </div>
+              <Text className="text-xl  w-full grow">{item}</Text>
             </div>
           ))}
         </div>

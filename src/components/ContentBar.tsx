@@ -20,12 +20,11 @@ export const ContentBar: React.FC = () => {
   if (isMobile) {
     return (
       <div
-        className={` 
-          fixed top-30 p-3 gap-2 font-proxima flex flex-col
+        className={`
+          fixed top-30 right-3 p-3 gap-2 font-proxima flex flex-col
           transition-all duration-300 ease-in-out rounded-2xl
           ${isScrolling || isExpanded ? "backdrop-blur-sm side-shadow" : "backdrop-blur-none"}
         `}
-        // Add onClick to show the text when the container is clicked
         onClick={() => {
           setIsExpanded(true); // Show the text
           if (timeoutRef.current) {
@@ -41,14 +40,14 @@ export const ContentBar: React.FC = () => {
           item === Sections.NONE ? null : (
             <div
               onClick={isTextVisible ? () => setTriggerScroll(item) : undefined}
-              className="flex items-center h-max gap-2"
+              className="flex flex-row-reverse items-center h-max gap-2"
               key={index}
             >
               <div
                 className={`
                   pb-8 rounded
                   transition-all duration-300 ease-in-out
-                  ${!isTextVisible ? "pl-1" : "pl-2"}
+                  ${!isTextVisible ? "pr-1" : "pr-2"}
                   ${item === activeSection ? "bg-bright-orange" : "bg-zinc-500"}
                 `}
               />
@@ -56,7 +55,7 @@ export const ContentBar: React.FC = () => {
                 className={`
                   text-base
                   transition-all duration-200 ease-in-out
-                  ${!isTextVisible ? "-translate-x-2 opacity-0" : "translate-x-0 opacity-100"}
+                  ${!isTextVisible ? "translate-x-2 opacity-0" : "translate-x-0 opacity-100"}
                   ${item === activeSection ? "text-t-dark dark:text-t-light" : "text-zinc-300"}
                 `}
               >
