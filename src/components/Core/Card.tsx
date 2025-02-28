@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { ExperienceData } from "./Resume.tsx";
+import { ExperienceData } from "./Core.tsx";
 
 interface ResumeCardProps {
   exp: ExperienceData;

@@ -2,6 +2,7 @@ export enum Sections {
   NONE = "NONE",
   ABOUT = "ABOUT",
   CORE = "CORE",
+  RESUME = "RESUME",
   SKILLS = "SKILLS",
   GAME = "GAME",
 }

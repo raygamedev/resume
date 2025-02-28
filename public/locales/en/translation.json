@@ -3,11 +3,8 @@
   "jp": "日本語",
   "title": "Welcome to react using react-i18next",
   "job_title": "FULLSTACK SOFTWARE ENGINEER",
-  "description": {
-    "part1": "To get started, edit <1>src/App.js</1> and save to reload.",
-    "part2": "Switch language between english and german using buttons above."
-  },
   "bullet": "•",
+
   "resume": {
     "profile": {
       "about": "ABOUT",
@@ -23,6 +20,12 @@
         "Hobbyist video game developer experienced in Unity and C#",
         "Entire professional career built through self-directed learning and continuous self-improvement."
       ]
+    },
+
+    "core": {
+      "frontend": "Proven Expertise in Modern Frontend Development: High-Performance, User-Centric Web Apps with React, TypeScript, and Next.js",
+      "backend": "Proven Expertise in Robust Backend Development: Scalable, Secure Systems with Python, and PostgreSQL",
+      "cicd": "Expertise in Streamlined CI/CD Pipelines: Automated, Efficient Deployments with GitHub Actions, GitlabCI and Jenkins"
     },
     "experience":
 [ {

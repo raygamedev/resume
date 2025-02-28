@@ -11,6 +11,11 @@ export interface ProfileData {
   location: { city: string; country: string };
   description: string[];
 }
+export interface CoreData {
+  frontend: string;
+  backend: string;
+  cicd: string;
+}
 
 export interface Skill {
   name: string;

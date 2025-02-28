@@ -44,4 +44,10 @@ export const Skills: { [name: string]: Skill } = {
     hero: "/skills/heroes/rustHero.png",
     palette: PaletteColor.VIBRANT,
   },
+  csharp: {
+    name: "C#",
+    icon: "/skills/icons/csharp.svg",
+    hero: "/skills/heroes/csharpHero.png",
+    palette: PaletteColor.VIBRANT,
+  },
 };

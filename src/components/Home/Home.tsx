@@ -1,8 +1,9 @@
 import React, { useEffect, useRef } from "react";
 import { Profile } from "../Profile/Profile";
-import { Resume } from "../Resume/Resume";
+import { Core } from "../Core/Core.tsx";
 import { Sections } from "../../enum.ts";
 import { useNavStore } from "../../store.ts";
+import { Resume } from "../Resume/Resume.tsx";
 
 interface HomeProps {
   setFloatingTop: React.Dispatch<React.SetStateAction<number>>;
@@ -94,6 +95,12 @@ export const Home: React.FC<HomeProps> = ({ setFloatingTop, floatingRef }) => {
           <section
             className="min-h-screen flex items-center "
             data-section={Sections.CORE}
+          >
+            <Core />
+          </section>
+          <section
+            className="min-h-screen flex items-center "
+            data-section={Sections.RESUME}
           >
             <Resume />
           </section>

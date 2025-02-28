@@ -8,11 +8,11 @@ import { useMobileStore } from "../../store.ts";
 
 export const Profile: React.FC = () => {
   const { t } = useTranslation();
-  const isMobile = useMobileStore((state) => state.isMobile);
   const profileData = t("resume.profile", {
     returnObjects: true,
   }) as ProfileData;
 
+  const isMobile = useMobileStore((state) => state.isMobile);
   if (isMobile) {
     return (
       <div className="flex flex-col w-screen px-4 font-proxima  dark:text-yellow-50">

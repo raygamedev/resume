@@ -3,19 +3,14 @@
   "jp": "日本語",
   "title": "test",
   "job_title": "フルスタックソフトウェアエンジニア",
-  "description": {
-    "part1": "To get started, edit <1>src/App.js</1> and save to reload.",
-    "part2": "Switch language between english and german using buttons above."
-  },
   "bullet": "※",
   "resume": {
     "profile": {
       "about": "自己紹介",
-        "location": {
-
-          "city": "東京",
-            "country": "日本"
-    },
+      "location": {
+        "city": "東京",
+        "country": "日本"
+      },
       "description": [
         "ソフトウェア開発業界で約7年の経験を有する、非常に意欲的なエンジニアです。",
         "常に成長、学習、そして成果を追求しています。",
@@ -24,8 +19,13 @@
         "自己主導の学習と継続的な自己改善を通じて、キャリアを構築してきました。"
       ]
     },
-    "experience":
-[{
+    "core": {
+      "frontend": "モダンフロントエンド開発における確かな専門知識：React、TypeScript、Next.jsを使用した高性能でユーザー中心のウェブアプリケーション",
+      "backend": "堅牢なバックエンド開発における確かな専門知識：Python、PostgreSQLによるスケーラブルで安全なシステム",
+      "cicd": "CI/CDパイプラインにおける専門知識：GitHub Actions、GitLab CI、Jenkinsによる自動化され効率的なデプロイメント"
+    },
+    "experience": [
+      {
         "jobTitle": "フルスタックソフトウェアエンジニア",
         "company": "SIEMENS（買収後）",
         "dates": "2023年〜現在",
@@ -36,7 +36,7 @@
           "React.js、Typescript、Viteを用いて、シーメンスのUI/UXデザインをソフトウェアに統合。"
         ]
       },
- {
+      {
         "jobTitle": "フルスタックソフトウェアエンジニア",
         "company": "INSPEKTO",
         "dates": "2020年〜2023年",
@@ -45,7 +45,7 @@
           "設計、開発、テスト、デプロイまでの全工程を一手に担う。"
         ]
       },
- {
+      {
         "jobTitle": "ジュニアソフトウェアエンジニア",
         "company": "INSPEKTO",
         "dates": "2019年〜2020年",
@@ -54,7 +54,7 @@
           "PythonとJenkinsを用いたCI/CDパイプラインの開発。"
         ]
       },
- {
+      {
         "jobTitle": "データチームメンバー",
         "company": "INSPEKTO",
         "dates": "2018年〜2019年",
@@ -62,7 +62,8 @@
           "PythonおよびLinuxの基礎知識。",
           "アルゴリズムチーム向けのデータ分析、ツール自動化のためのPythonスクリプト作成。"
         ]
-      } ],
+      }
+    ],
     "contact": {
       "email": "dan@raydevs.com",
       "phone": "+972-526865438",
@@ -94,5 +95,4 @@
       "japanese": "N4〜N3"
     }
   }
-
 }
