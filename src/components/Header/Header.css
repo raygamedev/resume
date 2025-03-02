@@ -11,6 +11,7 @@
   background-size: 3px 2px;
   -webkit-backdrop-filter: blur(3px);
   -moz-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
 }
 
 .dark .header-bg {

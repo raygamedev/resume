@@ -52,7 +52,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
     <div
       ref={dropdownRef}
       className={
-        `absolute dark:bg-zinc-900 md:left-1/2 md:top-full md:transform md:-translate-x-1/2 md:mt-2 min-w-max md:p-2 shadow rounded transition-all duration-200 ease-out flex-col flex ${
+        `absolute bg-light dark:bg-zinc-900 md:left-1/2 md:top-full md:transform md:-translate-x-1/2 md:mt-2 min-w-max md:p-2 shadow rounded transition-all duration-200 ease-out flex-col flex ${
           isOpen
             ? "opacity-100 translate-y-0 pointer-events-auto"
             : "opacity-0 -translate-y-2 pointer-events-none"
