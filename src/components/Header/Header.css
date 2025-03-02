@@ -9,13 +9,11 @@
           var(--color-light) 1px
   );
   background-size: 3px 2px;
-  backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
   -moz-backdrop-filter: blur(3px);
 }
 
 .dark .header-bg {
-
   background-image: radial-gradient(
           rgba(0, 0, 0, 0) 0px,
           var(--color-dark-900) 1px
