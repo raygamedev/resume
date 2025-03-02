@@ -2,21 +2,3 @@
   text-shadow: #fc0 1px 0 15px;
   transition: text-shadow 0.2s ease-in-out;
 }
-
-.header-bg {
-  background-image: radial-gradient(
-          rgba(0, 0, 0, 0) 0px,
-          var(--color-light) 1px
-  );
-  background-size: 3px 2px;
-  -webkit-backdrop-filter: blur(3px);
-  -moz-backdrop-filter: blur(3px);
-  backdrop-filter: blur(3px);
-}
-
-.dark .header-bg {
-  background-image: radial-gradient(
-          rgba(0, 0, 0, 0) 0px,
-          var(--color-dark-900) 1px
-  );
-}

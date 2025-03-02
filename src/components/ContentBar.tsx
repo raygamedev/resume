@@ -23,7 +23,8 @@ export const ContentBar: React.FC = () => {
         className={`
           fixed top-30 right-3 p-3 gap-2 font-proxima flex flex-col
           transition-all duration-300 ease-in-out rounded-2xl
-          ${isScrolling || isExpanded ? "backdrop-blur-sm side-shadow " : "backdrop-blur-none"}
+          ${isScrolling || isExpanded ? "backdrop-blur-[3px] bg-[radial-gradient(rgba(0,0,0,0)_0px,var(--color-light)_1px)] dark:bg-[radial-gradient(rgba(0,0,0,0)_0px,var(--color-dark-900)_2px)] bg-[size:5px_5px] side-shadow" : ""}
+          
         `}
         onClick={() => {
           setIsExpanded(true); // Show the text

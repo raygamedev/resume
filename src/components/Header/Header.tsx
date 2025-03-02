@@ -11,9 +11,7 @@ export const Header: React.FC = () => {
       <div
         className="
           w-full mx-auto px-4 flex items-center justify-between h-16
-          backdrop-blur-[3px]
-          bg-[radial-gradient(rgba(0,0,0,0)_0px,var(--color-light)_1px)]
-          bg-[size:3px_2px]
+          backdrop-blur-[3px] bg-[radial-gradient(rgba(0,0,0,0)_0px,var(--color-light)_1px)] dark:bg-[radial-gradient(rgba(0,0,0,0)_0px,var(--color-dark-900)_2px)] bg-[size:5px_5px]
         "
       >
         <div
