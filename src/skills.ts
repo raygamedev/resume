@@ -50,4 +50,16 @@ export const Skills: { [name: string]: Skill } = {
     hero: "/skills/heroes/csharpHero.png",
     palette: PaletteColor.VIBRANT,
   },
+  docker: {
+    name: "Docker",
+    icon: "/skills/icons/docker.svg",
+    hero: "/skills/heroes/dockerHero.png",
+    palette: PaletteColor.VIBRANT,
+  },
+  gitlabci: {
+    name: "GitLab CI/CD",
+    icon: "/skills/icons/gitlabci.svg",
+    hero: "/skills/heroes/gitlabciHero.png",
+    palette: PaletteColor.VIBRANT,
+  },
 };

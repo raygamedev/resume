@@ -93,22 +93,22 @@ export const SkillCarousel: React.FC<SkillCarouselProps> = ({ skills }) => {
       opacity = 1;
     } else if (position === skills.length - 1) {
       // Left card
-      transform = "translateX(-130%) scale(0.85)";
+      transform = "translateX(-80%) scale(0.85)";
       zIndex = 20;
       opacity = 0.7;
     } else if (position === 1) {
       // Right card
-      transform = "translateX(30%) scale(0.85)";
+      transform = "translateX(-20%) scale(0.85)";
       zIndex = 20;
       opacity = 0.7;
     } else if (position === skills.length - 2) {
       // Far left card
-      transform = "translateX(-170%) scale(0.7)";
+      transform = "translateX(-100%) scale(0.7)";
       zIndex = 10;
       opacity = 0.4;
     } else if (position === 2) {
       // Far right card
-      transform = "translateX(70%) scale(0.7)";
+      transform = "translateX(0%) scale(0.7)";
       zIndex = 10;
       opacity = 0.4;
     } else {
@@ -123,7 +123,7 @@ export const SkillCarousel: React.FC<SkillCarouselProps> = ({ skills }) => {
   };
 
   return (
-    <div className="relative w-full py-16">
+    <div className="relative w-full ">
       <div
         ref={containerRef}
         className="relative w-full min-h-96 touch-pan-y select-none"
@@ -141,35 +141,9 @@ export const SkillCarousel: React.FC<SkillCarouselProps> = ({ skills }) => {
             className="absolute top-0 left-1/2 transition-all duration-500 ease-in-out cursor-pointer"
             style={getCardPosition(index)}
           >
-            <SkillCard skill={skill} />
+            <SkillCard skill={skill} isSelected={index === activeIndex} />
           </div>
         ))}
-      </div>
-
-      <div className="mt-8 flex justify-center gap-4">
-        <button
-          onClick={handlePrev}
-          className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-full focus:outline-none transition-colors"
-        >
-          Previous
-        </button>
-        <div className="flex gap-2 items-center">
-          {skills.map((_, index) => (
-            <div
-              key={index}
-              className={`h-2 w-2 rounded-full cursor-pointer transition-colors ${
-                index === activeIndex ? "bg-blue-500" : "bg-gray-300"
-              }`}
-              onClick={() => setActiveIndex(index)}
-            />
-          ))}
-        </div>
-        <button
-          onClick={handleNext}
-          className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-full focus:outline-none transition-colors"
-        >
-          Next
-        </button>
       </div>
     </div>
   );

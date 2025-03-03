@@ -24,8 +24,6 @@ const App = () => {
       // Set a timeout to mark scrolling as stopped after 100ms of inactivity
       timer = setTimeout(() => {
         setIsScrolling(false);
-        // Optional: perform any actions here when scrolling stops
-        console.log("Scrolling stopped");
       }, 400);
     };
 
@@ -53,11 +51,11 @@ const App = () => {
 
   return (
     <div
-      className={`m text-dark-900 
+      className={`m text-dark-900
       bg-light
       bg-[linear-gradient(to_right,rgba(240,240,240,1)_0px_1px,transparent_2px_200px),linear-gradient(to_bottom,rgba(240,240,240,1)_0px_1px,transparent_2px_200px)]
       bg-[size:10rem_10rem]
-      dark:text-yellow-50 dark:bg-dark-900 
+      dark:text-yellow-50 dark:bg-dark-900
       dark:bg-[linear-gradient(to_right,rgba(25,25,25,1)_0px_1px,transparent_2px_200px),linear-gradient(to_bottom,rgba(25,25,25,1)_0px_1px,transparent_2px_200px)]
       ${isMobile ? "p-4" : "p-8"}`} // adjust padding for mobile/desktop
     >

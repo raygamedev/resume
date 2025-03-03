@@ -51,13 +51,7 @@ export const Core: React.FC = () => {
     {
       title: "Frontend",
       subTitle: core.frontend,
-      skills: [
-        Skills.react,
-        Skills.redux,
-        Skills.python,
-        Skills.typescript,
-        Skills.tailwind,
-      ],
+      skills: [Skills.react, Skills.redux, Skills.typescript, Skills.tailwind],
     },
     {
       title: "Backend",
@@ -67,23 +61,27 @@ export const Core: React.FC = () => {
     {
       title: "DevOps CI/CD",
       subTitle: core.cicd,
-      skills: [Skills.python, Skills.csharp, Skills.rust],
+      skills: [Skills.docker, Skills.gitlabci, Skills.rust],
     },
   ];
 
   if (isMobile) {
     return (
       <div
-        className="flex  items-center w-screen grow flex-col mt-30 flex-wrap gap-80"
+        className="flex  items-center w-screen grow flex-col mt-30 flex-wrap gap-40"
         ref={containerRef}
       >
         {data.map((item, index) => (
-          <div className={"hide w-7/8 flex flex-col gap-5"}>
+          <div key={index} className={"hide w-7/8 flex flex-col gap-5"}>
             <div className={"flex  flex-col h-full"}>
-              <div className="title  text-2xl font-jetbrains ">
+              <div className="title-mb text-2xl font-jetbrains ">
                 0{index + 1}
               </div>
-              <div className={"text-4xl  font-proxima"}>
+              <div
+                className={
+                  "text-4xl text-t-dark dark:text-t-light font-proxima"
+                }
+              >
                 {item.title.toUpperCase()}
               </div>
               <div
@@ -93,7 +91,11 @@ export const Core: React.FC = () => {
               >
                 {item.subTitle}
               </div>
-              <div className={"w-full border-b-[0.5px] mb-10"} />
+              <div
+                className={
+                  "w-full border-t-dark dark:border-t-light border-b-[0.5px] mb-10"
+                }
+              />
               <SkillCarousel skills={item.skills} />
             </div>
           </div>
@@ -107,10 +109,14 @@ export const Core: React.FC = () => {
       ref={containerRef}
     >
       {data.map((item, index) => (
-        <div className={"hide flex flex-col gap-5"}>
+        <div key={index} className={"hide flex flex-col gap-5"}>
           <div className={"flex flex-col"}>
             <div className="title text-6xl font-jetbrains ">0{index + 1}</div>
-            <div className={"text-7xl font-proxima"}>
+            <div
+              className={
+                "text-7xl text-t-dark dark:text-t-light  font-proxima "
+              }
+            >
               {item.title.toUpperCase()}
             </div>
             <div
@@ -120,8 +126,8 @@ export const Core: React.FC = () => {
             </div>
             <div className={"w-full border-b-[0.5px] mb-10"} />
             <div className={"flex flex-row gap-8"}>
-              {item.skills.map((skill) => (
-                <SkillCard className={"hide logo"} skill={skill} />
+              {item.skills.map((skill, index) => (
+                <SkillCard key={index} className={"hide logo"} skill={skill} />
               ))}
             </div>
           </div>
