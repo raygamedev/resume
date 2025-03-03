@@ -119,19 +119,6 @@ export const SkillCarousel: React.FC<SkillCarouselProps> = ({ skills }) => {
       opacity = 0;
     }
 
-    // Add drag effect if currently dragging
-    if (isDragging) {
-      const dragOffset = (currentX - startX) / 3; // Divide by 3 to reduce sensitivity
-      return {
-        transform: transform.replace(
-          "translateX(",
-          `translateX(calc(${dragOffset}px + `,
-        ),
-        zIndex,
-        opacity,
-      };
-    }
-
     return { transform, zIndex, opacity };
   };
 
@@ -139,7 +126,7 @@ export const SkillCarousel: React.FC<SkillCarouselProps> = ({ skills }) => {
     <div className="relative w-full py-16">
       <div
         ref={containerRef}
-        className="relative w-full min-h-96 touch-pan-y"
+        className="relative w-full min-h-96 touch-pan-y select-none"
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
@@ -151,7 +138,7 @@ export const SkillCarousel: React.FC<SkillCarouselProps> = ({ skills }) => {
         {skills.map((skill, index) => (
           <div
             key={index}
-            className={`absolute top-0 left-1/2 ${isDragging ? "" : "transition-all duration-500 ease-in-out"}`}
+            className="absolute top-0 left-1/2 transition-all duration-500 ease-in-out cursor-pointer"
             style={getCardPosition(index)}
           >
             <SkillCard skill={skill} />

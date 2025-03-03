@@ -94,7 +94,7 @@ export const Core: React.FC = () => {
                 {item.subTitle}
               </div>
               <div className={"w-full border-b-[0.5px] mb-10"} />
-              <SkillCarousel skills={data[0].skills} />
+              <SkillCarousel skills={item.skills} />
             </div>
           </div>
         ))}
