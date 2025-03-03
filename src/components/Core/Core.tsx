@@ -6,6 +6,7 @@ import { Skills } from "../../skills.ts";
 import { useTranslation } from "react-i18next";
 import { CoreData } from "../../types.ts";
 import { useMobileStore } from "../../store.ts";
+import { SkillCarousel } from "../Skills/SkillCarousel.tsx";
 
 export interface ExperienceData {
   jobTitle: string;
@@ -50,7 +51,13 @@ export const Core: React.FC = () => {
     {
       title: "Frontend",
       subTitle: core.frontend,
-      skills: [Skills.react, Skills.redux, Skills.typescript, Skills.tailwind],
+      skills: [
+        Skills.react,
+        Skills.redux,
+        Skills.python,
+        Skills.typescript,
+        Skills.tailwind,
+      ],
     },
     {
       title: "Backend",
@@ -87,6 +94,7 @@ export const Core: React.FC = () => {
                 {item.subTitle}
               </div>
               <div className={"w-full border-b-[0.5px] mb-10"} />
+              <SkillCarousel skills={data[0].skills} />
             </div>
           </div>
         ))}
