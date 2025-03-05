@@ -1,0 +1,24 @@
+.hide {
+  opacity: 0;
+  /* filter: blur(5px); */
+  transform: translateY(10%);
+  transition:
+    opacity 1s,
+    /* filter 1s, */ transform 1s;
+}
+
+.hide-date {
+  transform: translateY(-10%);
+  opacity: 0;
+  /* filter: blur(5px); */
+  transform: translateY(10%);
+  transition:
+    opacity 1s,
+    /* filter 1s, */ transform 1s;
+}
+
+.show {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}

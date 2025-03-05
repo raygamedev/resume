@@ -3,7 +3,7 @@ import { Profile } from "../Profile/Profile";
 import { Core } from "../Core/Core.tsx";
 import { Sections } from "../../enum.ts";
 import { useNavStore } from "../../store.ts";
-import { Resume } from "../Resume/Resume.tsx";
+import { HorizontalScrollCarousel, Resume } from "../Resume/Resume.tsx";
 
 interface HomeProps {
   setFloatingTop: React.Dispatch<React.SetStateAction<number>>;
@@ -80,7 +80,7 @@ export const Home: React.FC<HomeProps> = ({ setFloatingTop, floatingRef }) => {
 
   return (
     <div className="pt-16">
-      <div className="flex justify-center grow overflow-x-hidden">
+      <div className="flex justify-center grow">
         {/* Relative container for scrolling */}
         <div
           ref={containerRef}
