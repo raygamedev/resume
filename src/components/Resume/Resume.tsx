@@ -11,14 +11,19 @@ export const Resume = () => {
   const experience = t("resume.experience", {
     returnObjects: true,
   }) as ExperienceData[];
-  const targetRef = useRef(null);
+
+  // Use the containerRef as the scroll target so that the timeline reacts to the container’s scroll
   const { scrollYProgress } = useScroll({
-    target: targetRef,
+    target: containerRef,
+    offset: ["start start", "end end"],
   });
+  // Map scroll progress to scaleY value (from 0 to 1)
+  const scaleY = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
+    // Select elements you want to animate (could be card elements or parts of the card)
     const sections = container.querySelectorAll(".hide, .hide-date");
 
     const observer = new IntersectionObserver(
@@ -39,36 +44,27 @@ export const Resume = () => {
       observer.disconnect();
     };
   }, []);
-  const x = useTransform(scrollYProgress, [0, 1], ["10%", "-95%"]);
 
   return (
-    <div className="bg-neutral-800 w-full">
-      <section
-        ref={targetRef}
-        className="relative h-[2000vh] bg-neutral-900 w-[80vw]"
-      >
-        <div className="sticky top-0 flex h-screen  overflow-hidden">
-          {/* Horizontal timeline line, centered vertically */}
-          {/* Cards sliding horizontally */}
-          <motion.div
-            ref={containerRef}
-            style={{ x }}
-            className="flex flex-col gap-4 relative z-10 "
-          >
-            <div className="flex flex-row justify-around mt-20">
-              {experience.map((exp) => {
-                return <ResumeCard exp={exp} className="hide" />;
-              })}
-            </div>
-            <div className="h-0.5 bg-gray-500 w-[12000px] transform -translate-y-1/2"></div>
-            <div className="flex flex-row justify-around">
-              {experience.map((exp) => {
-                return <div className="hide-date">{exp.dates}</div>;
-              })}
-            </div>
-          </motion.div>
-        </div>
-      </section>
+    <div
+      className="w-screen items-center flex flex-col gap-30 relative"
+      ref={containerRef}
+    >
+      <h3 className="text-6xl font-proxima">Experience</h3>
+
+      {/* Timeline Line */}
+      <motion.div
+        className="timeline-line"
+        style={{
+          scaleY: scaleY,
+          transformOrigin: "top", // so it scales from the top down
+        }}
+      />
+
+      {experience.map((item, index) => (
+        // Option 1: Use Framer Motion’s built-in "whileInView" (if ResumeCard is a motion component)
+        <ResumeCard exp={item} key={index} />
+      ))}
     </div>
   );
 };

@@ -22,3 +22,11 @@
   filter: blur(0);
   transform: translateY(0);
 }
+.timeline-line {
+  position: absolute;
+  left: 50px; /* adjust to align with your design */
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: red; /* or any color you prefer */
+}
