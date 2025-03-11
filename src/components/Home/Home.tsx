@@ -3,7 +3,7 @@ import { Profile } from "../Profile/Profile";
 import { Core } from "../Core/Core.tsx";
 import { Sections } from "../../enum.ts";
 import { useNavStore } from "../../store.ts";
-import { HorizontalScrollCarousel, Resume } from "../Resume/Resume.tsx";
+import { Resume } from "../Resume/Resume.tsx";
 
 interface HomeProps {
   setFloatingTop: React.Dispatch<React.SetStateAction<number>>;
