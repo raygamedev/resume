@@ -15,23 +15,24 @@ interface ResumeCardProps {
 export const ResumeCard: React.FC<ResumeCardProps> = ({ exp, className }) => {
   return (
     <motion.div
-      className="resume-card"
+      className={`resume-card w-3/5 h-max flex flex-col dark:text-t-light ${className}`}
       variants={cardVariants}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.5 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
-      <div
-        key={exp.jobTitle}
-        className={`h-[300px] w-[600px] border-1 border-zinc-600 overflow-hidden bg-zinc-800 font-jetbrains ${className} rounded-lg`}
-      >
-        <p className=" p-2 text-md  uppercase text-t-light border-b-1 border-zinc-600 rounded-tl-lg rounded-tr-lg   backdrop-blur-lg">
-          {exp.jobTitle}
-        </p>
-        <div className="flex bg-zinc-900 p-3 flex-col justify-start h-full">
+      <div className="text-3xl font-jetbrains">
+        {exp.jobTitle.toUpperCase()}
+      </div>
+      <div>{exp.dates}</div>
+      <div key={exp.jobTitle} className={`h-max w-full `}>
+        <div className="flex mt-5 flex-col gap-5 justify-start h-full">
           {exp.responsibilities.map((responsibility, index) => (
-            <p key={index} className=" h-full w-full text-xs font-jetbrains">
+            <p
+              key={index}
+              className="h-full w-full text-sm text-zinc-400 font-jetbrains"
+            >
               {responsibility}
             </p>
           ))}

@@ -3,8 +3,6 @@ export enum Sections {
   ABOUT = "ABOUT",
   CORE = "CORE",
   RESUME = "RESUME",
-  SKILLS = "SKILLS",
-  GAME = "GAME",
 }
 
 export enum PaletteColor {

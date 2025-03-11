@@ -15,7 +15,7 @@ export const Profile: React.FC = () => {
   const isMobile = useMobileStore((state) => state.isMobile);
   if (isMobile) {
     return (
-      <div className="flex flex-col w-screen px-4 font-proxima  dark:text-yellow-50">
+      <div className="flex flex-col w-screen px-4 font-proxima dark:text-yellow-50">
         {/* About Section */}
         <div className="flex p-5 flex-col">
           <div className="text-t-semi-dark">ABOUT:</div>
@@ -63,7 +63,7 @@ export const Profile: React.FC = () => {
   }
 
   return (
-    <div className="flex flex-row mx-auto font-proxima justify-around items-stretch min-h-[600px] dark:text-yellow-50">
+    <div className="flex flex-row -mt-30 mx-auto font-proxima justify-around items-stretch min-h-[600px] dark:text-yellow-50">
       {/* About Section */}
       <div className="flex-1 flex flex-col justify-start h-full">
         <div className="text-t-semi-dark">ABOUT:</div>

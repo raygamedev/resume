@@ -52,13 +52,32 @@ const App = () => {
   return (
     <div
       className={`m text-dark-900
-      bg-light
-      bg-[linear-gradient(to_right,rgba(240,240,240,1)_0px_1px,transparent_2px_200px),linear-gradient(to_bottom,rgba(240,240,240,1)_0px_1px,transparent_2px_200px)]
-      bg-[size:10rem_10rem]
-      dark:text-yellow-50 dark:bg-dark-900
-      dark:bg-[linear-gradient(to_right,rgba(25,25,25,1)_0px_1px,transparent_2px_200px),linear-gradient(to_bottom,rgba(25,25,25,1)_0px_1px,transparent_2px_200px)]
-      ${isMobile ? "p-4" : "p-8"}`} // adjust padding for mobile/desktop
+        bg-light bg-fixed overflow-x-hidden
+        bg-[linear-gradient(to_right,rgba(240,240,240,1)_0px_1px,transparent_2px_200px),linear-gradient(to_bottom,rgba(240,240,240,1)_0px_1px,transparent_2px_200px)]
+        bg-[size:10rem_10rem]
+        dark:text-yellow-50 dark:bg-dark-900
+        dark:bg-[linear-gradient(to_right,rgba(25,25,25,1)_0px_1px,transparent_2px_200px),linear-gradient(to_bottom,rgba(25,25,25,1)_0px_1px,transparent_2px_200px)]
+        relative
+        ${isMobile ? "p-4" : "p-8"}`}
     >
+      <div className="fixed inset-0 z-0 opacity-10 pointer-events-none">
+        <svg
+          // viewBox="1 1 1920 1920"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full h-full"
+        >
+          <filter id="noiseFilter">
+            <feTurbulence
+              type="fractalNoise"
+              baseFrequency="1.49"
+              numOctaves="4"
+              stitchTiles="stitch"
+            />
+          </filter>
+          <rect width="100%" height="100%" filter="url(#noiseFilter)" />
+        </svg>
+      </div>
+
       <Header />
       <Home setFloatingTop={setFloatingTop} floatingRef={floatingRef} />
       <Version />
