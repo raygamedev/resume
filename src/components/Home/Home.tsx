@@ -104,12 +104,6 @@ export const Home: React.FC<HomeProps> = ({ setFloatingTop, floatingRef }) => {
           >
             <Resume />
           </section>
-          <section
-            className="min-h-screen flex items-center opacity-0  transition-all duration-500"
-            data-section={Sections.SKILLS}
-          >
-            {/*<Skills />*/}
-          </section>
         </div>
       </div>
     </div>
